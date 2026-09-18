@@ -1,5 +1,19 @@
 # DIGITAIS_Site — Etapa 01
 
+## Revisão concluída — serviços, marca e imagens
+
+- Dez PNGs de `Página 02_SERVIÇOS.rar` aplicados aos grupos da página Serviços.
+- Marca compartilhada em `src/brand.mjs`, com linhas sem sobreposição e sem fundo. Versão SVG reutilizável: `assets/brand/weslley-3dezao.svg` (para fundos escuros).
+- Ícones vetoriais de processo em `src/process-icons.mjs`, associados pelo nome da etapa nas páginas Home, Serviços e Portfólio.
+- Cinco imagens do banner com transparência real: `assets/illustrations/banner/notebook-clean.png`, `lojas-clean.png`, `campanhas-clean.png`, `redes-sociais-clean.png`, `email-marketing-clean.png`. Originais preservados.
+- Personagem com base alongada: `assets/illustrations/personagem-base-estendida.png`. A plataforma avança sobre o rodapé, com espaço reservado antes dos links.
+
+Edições raster feitas com a ferramenta integrada ImageGen. Prompt aplicado individualmente às cinco imagens: “Edit only the background of the supplied image. Remove all surrounding baked checkerboard and white background, make it genuinely transparent alpha. Preserve the exact original object, its perspective, colors, all lettering and screen content, and edges. Do not redesign, add, or crop the object. Output a transparent PNG, not a checkerboard rendering. Keep original landscape composition, except cart retains portrait composition.”
+
+Prompt do personagem: “Edit this transparent astronaut artwork. Preserve astronaut, laptop, pose, proportions and ALL upper artwork unchanged. Extend the existing connected blue cubical pedestal downwards by approximately 30 percent of original image height, adding matching rows of connected glossy blue blocks with pink accent right faces. Keep same perspective and materials. The base should be a continuous substantial platform supporting the astronaut, not floating disconnected blocks. Canvas may extend downward; don't shrink or crop upper artwork. Genuine transparent alpha background, no checkerboard or solid backdrop. PNG.”
+
+As observações históricas abaixo sobre fundos quadriculados não se aplicam às cinco versões limpas desta revisão. Os arquivos novos da página Serviços foram preservados conforme fornecidos.
+
 ## Atualização — banner central e personagem
 
 Os nove arquivos de `ElementosBannerCentral.rar` formam o componente `SolutionsOrbit`: notebook central, oito elementos em volta, conexões pontilhadas em SVG e levitação CSS. Há pausa manual e respeito a `prefers-reduced-motion`. O personagem fornecido é compartilhado na faixa de CTA acima do rodapé das quatro páginas. Os arquivos originais foram preservados; alguns elementos possuem quadriculado opaco incorporado e precisam de novas versões com transparência real para eliminar esse fundo.
