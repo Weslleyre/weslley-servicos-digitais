@@ -1,0 +1,1 @@
+{"name":"digitais-site-etapa-01","version":"1.0.0","private":true,"type":"module","scripts":{"build":"node build.mjs","start":"node server.mjs","check":"node --check src/interactions.js && node --check build.mjs"}}
