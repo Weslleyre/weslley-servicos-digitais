@@ -1,4 +1,11 @@
 document.documentElement.classList.add('js');
+document.querySelector('.orbit-motion')?.addEventListener('click', event => {
+  const button=event.currentTarget;
+  const paused=button.getAttribute('aria-pressed')!=='true';
+  button.setAttribute('aria-pressed',String(paused));
+  button.textContent=paused?'Retomar animação':'Pausar animação';
+  button.closest('.orbit-composition').classList.toggle('is-paused',paused);
+});
 const menuButton = document.querySelector('.menu-toggle');
 const menu = document.querySelector('#menu');
 menuButton?.addEventListener('click', () => {

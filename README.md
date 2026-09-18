@@ -1,5 +1,9 @@
 # DIGITAIS_Site — Etapa 01
 
+## Atualização — banner central e personagem
+
+Os nove arquivos de `ElementosBannerCentral.rar` formam o componente `SolutionsOrbit`: notebook central, oito elementos em volta, conexões pontilhadas em SVG e levitação CSS. Há pausa manual e respeito a `prefers-reduced-motion`. O personagem fornecido é compartilhado na faixa de CTA acima do rodapé das quatro páginas. Os arquivos originais foram preservados; alguns elementos possuem quadriculado opaco incorporado e precisam de novas versões com transparência real para eliminar esse fundo.
+
 ## Atualização — ícones de Nossos Serviços
 
 Os sete PNGs enviados no pacote `Nosso Serviços_Página-01.rar` foram aplicados exclusivamente aos cards de Nossos Serviços da Home, preservando os arquivos originais. O registro em `src/assets.mjs` contém as associações, textos alternativos e dimensões 512 × 512. Os demais assets permanecem como placeholders. As observações abaixo sobre ausência de assets descrevem a entrega inicial.
