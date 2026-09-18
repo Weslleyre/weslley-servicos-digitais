@@ -1,5 +1,9 @@
 # DIGITAIS_Site — Etapa 01
 
+## Atualização — ícones de Nossos Serviços
+
+Os sete PNGs enviados no pacote `Nosso Serviços_Página-01.rar` foram aplicados exclusivamente aos cards de Nossos Serviços da Home, preservando os arquivos originais. O registro em `src/assets.mjs` contém as associações, textos alternativos e dimensões 512 × 512. Os demais assets permanecem como placeholders. As observações abaixo sobre ausência de assets descrevem a entrega inicial.
+
 Protótipo estrutural responsivo de Weslley 3Dezão — Serviços Digitais. Esta entrega termina na Etapa 01; nenhum asset final foi criado, extraído ou integrado.
 
 ## Executar
