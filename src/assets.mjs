@@ -1,6 +1,11 @@
 // Ícones fornecidos pelo usuário para Nossos Serviços da Home.
 // Demais espaços permanecem como placeholders até o envio dos respectivos assets.
 export const assets = {
+  'ASSET-DIFERENCIAL-01': { src: 'assets/icons/agilidade.png', alt: 'Raio — Agilidade', width: 512, height: 512 },
+  'ASSET-DIFERENCIAL-02': { src: 'assets/icons/estrategia.png', alt: 'Alvo — Estratégia', width: 512, height: 512 },
+  'ASSET-DIFERENCIAL-03': { src: 'assets/icons/design.png', alt: 'Ferramenta de desenho — Design', width: 512, height: 512 },
+  'ASSET-DIFERENCIAL-04': { src: 'assets/icons/conversao.png', alt: 'Gráfico — Conversão', width: 512, height: 512 },
+  'ASSET-DIFERENCIAL-05': { src: 'assets/icons/inovacao.png', alt: 'Cubo — Inovação', width: 512, height: 512 },
   'ASSET-HOME-SERVICO-01': { src: 'assets/services/sites-institucionais.png', alt: 'Janela de site — Sites Institucionais', width: 512, height: 512 },
   'ASSET-HOME-SERVICO-02': { src: 'assets/services/landing-pages.png', alt: 'Foguete — Landing Pages', width: 512, height: 512 },
   'ASSET-HOME-SERVICO-03': { src: 'assets/services/lojas-virtuais.png', alt: 'Carrinho de compras — Lojas Virtuais', width: 512, height: 512 },
