@@ -16,8 +16,8 @@
 .process-grid li:not(:last-child)::after{content:"";position:absolute;top:37px;left:calc(100% + 6px);width:20px;border-top:2px dotted var(--color-lime)}
 .process-grid .step-number{font-size:2.5rem;font-weight:900}
 .process-grid li:nth-child(even) .step-number{color:var(--color-pink)}
-.service-card>.asset{display:flex;align-items:center;justify-content:center}
-.service-card>.asset img{height:auto;max-height:100%;width:100%;object-fit:contain}
+.service-card>.asset{display:flex;align-items:center;justify-content:center;padding:20px 5mm}
+.service-card>.asset img{display:block;height:auto;max-height:100%;width:100%;object-fit:contain;filter:drop-shadow(-5px 3px 5px rgb(0 0 0 / 16%))}
 .service-card:nth-child(2)>.asset{order:2}
 /* Keep the opaque footer and its content in front of the pedestal. */
 .cta{position:relative;z-index:1}
@@ -27,4 +27,5 @@
 @media(max-width:1100px){.process-grid li:nth-child(3n)::after{display:none}}
 @media(min-width:561px) and (max-width:800px){.cta .cta-asset{grid-row:1 / 3;align-self:end;margin-bottom:-28px}.cta .cta-grid>div:nth-child(2){grid-column:2;grid-row:1}.cta .cta-grid>.actions{grid-column:2;grid-row:2}}
 @media(max-width:560px){.brand-wordmark{width:138px}.process-grid{gap:28px 18px}.process-icon{width:64px;height:68px}.process-grid li::after{display:none}.cta .cta-grid{grid-template-columns:1fr}.cta .cta-grid>.cta-asset{grid-row:3;justify-self:start;max-width:180px;margin-top:4px;margin-bottom:-28px;transform:translateY(44px)}.cta .cta-grid>div:nth-child(2){grid-row:1}.cta .cta-grid>.actions{grid-row:2}.footer{padding-top:88px}}
+
 
