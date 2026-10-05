@@ -1,4 +1,47 @@
 document.documentElement.classList.add('js');
+const serviceGallery = document.querySelector('#service-gallery');
+if (serviceGallery) {
+  const groups = JSON.parse(document.querySelector('#service-gallery-data').textContent);
+  let groupIndex = 0, imageIndex = 0, opener;
+  const image = document.querySelector('#service-gallery-image');
+  function renderService() {
+    const group = groups[groupIndex], item = group.items[imageIndex];
+    image.src = item.src;
+    image.alt = item.title;
+    image.width = item.width;
+    image.height = item.height;
+    serviceGallery.style.setProperty('--gallery-ratio', item.width / item.height);
+    document.querySelector('#service-gallery-title').textContent = item.title;
+    document.querySelector('#service-gallery-category').textContent = group.title;
+    document.querySelector('#service-gallery-description').textContent = item.description;
+    document.querySelector('#service-gallery-count').textContent = `${imageIndex + 1} / ${group.items.length}`;
+    serviceGallery.scrollTop = 0;
+  }
+  function advance(delta) {
+    imageIndex = (imageIndex + delta + groups[groupIndex].items.length) % groups[groupIndex].items.length;
+    renderService();
+  }
+  document.querySelectorAll('[data-service-group]').forEach(button => button.addEventListener('click', () => {
+    opener = button;
+    groupIndex = Number(button.dataset.serviceGroup);
+    imageIndex = Number(button.dataset.serviceIndex);
+    renderService();
+    serviceGallery.showModal();
+    document.body.classList.add('gallery-open');
+  }));
+  serviceGallery.querySelector('.gallery-close').addEventListener('click', () => serviceGallery.close());
+  serviceGallery.querySelector('[data-gallery-prev]').addEventListener('click', () => advance(-1));
+  serviceGallery.querySelector('[data-gallery-next]').addEventListener('click', () => advance(1));
+  serviceGallery.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault(); advance(event.key === 'ArrowLeft' ? -1 : 1);
+    }
+  });
+  serviceGallery.addEventListener('click', event => { if (event.target === serviceGallery) serviceGallery.close(); });
+  serviceGallery.addEventListener('close', () => {
+    document.body.classList.remove('gallery-open'); opener?.focus();
+  });
+}
 document.querySelector('.orbit-motion')?.addEventListener('click', event => {
   const button=event.currentTarget;
   const paused=button.getAttribute('aria-pressed')!=='true';

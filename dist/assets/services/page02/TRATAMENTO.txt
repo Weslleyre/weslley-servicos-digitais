@@ -1,0 +1,5 @@
+Tratamento das artes de serviços 01–10
+Ferramenta: image_gen integrada, edição background-extraction.
+Prompt comum: remover apenas o fundo quadriculado ou fundo externo; transparência alpha real; preservar objetos, composição, cores, proporções e textos; manter a arte inteira centralizada em formato horizontal 3:2; sem novos objetos. Sombra aplicada em CSS.
+Arquivos finais: assets/services/page02/*-clean.png. Originais preservados.
+Apresentação: padding lateral 5mm; drop-shadow(-5px 3px 5px rgb(0 0 0 / 16%)); alinhamento central.
