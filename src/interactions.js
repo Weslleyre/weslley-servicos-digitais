@@ -2,6 +2,28 @@ document.documentElement.classList.add('js');
 const serviceGallery = document.querySelector('#service-gallery');
 if (serviceGallery) {
   const groups = JSON.parse(document.querySelector('#service-gallery-data').textContent);
+  const preview = document.querySelector('#service-hover-preview');
+  function hidePreview() { preview.hidden = true; }
+  function showPreview(button) {
+    if (serviceGallery.open) return;
+    const item = groups[Number(button.dataset.serviceGroup)].items[Number(button.dataset.serviceIndex)];
+    preview.querySelector('img').src = item.src;
+    preview.querySelector('span').textContent = item.title;
+    preview.hidden = false;
+    const box = button.getBoundingClientRect();
+    const width = preview.offsetWidth, height = preview.offsetHeight;
+    const left = box.right + 14 + width <= innerWidth ? box.right + 14 : box.left - width - 14;
+    preview.style.left = `${Math.max(8, Math.min(left, innerWidth - width - 8))}px`;
+    preview.style.top = `${Math.max(8, Math.min(box.top - 15, innerHeight - height - 8))}px`;
+  }
+  document.querySelectorAll('.service-name').forEach(button => {
+    button.addEventListener('pointerenter', event => { if(event.pointerType === 'mouse') showPreview(button); });
+    button.addEventListener('pointerleave', hidePreview);
+    button.addEventListener('focus', () => showPreview(button));
+    button.addEventListener('blur', hidePreview);
+  });
+  window.addEventListener('scroll', hidePreview, true);
+  window.addEventListener('resize', hidePreview);
   let groupIndex = 0, imageIndex = 0, opener;
   const image = document.querySelector('#service-gallery-image');
   function renderService() {
@@ -22,6 +44,7 @@ if (serviceGallery) {
     renderService();
   }
   document.querySelectorAll('[data-service-group]').forEach(button => button.addEventListener('click', () => {
+    hidePreview();
     opener = button;
     groupIndex = Number(button.dataset.serviceGroup);
     imageIndex = Number(button.dataset.serviceIndex);
