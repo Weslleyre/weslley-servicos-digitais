@@ -1,6 +1,12 @@
 // Ícones fornecidos pelo usuário para Nossos Serviços da Home.
 // Demais espaços permanecem como placeholders até o envio dos respectivos assets.
 export const assets = {
+  'ASSET-FERRAMENTA-1': {src: 'assets/icons/tools/blender.svg', alt: 'Logotipo Blender 3D', width: 128, height: 128},
+  'ASSET-FERRAMENTA-2': {src: 'assets/icons/tools/3ds-max.svg', alt: 'Logotipo 3ds Max', width: 128, height: 128},
+  'ASSET-FERRAMENTA-3': {src: 'assets/icons/tools/photoshop.svg', alt: 'Logotipo Photoshop', width: 128, height: 128},
+  'ASSET-FERRAMENTA-4': {src: 'assets/icons/tools/illustrator.svg', alt: 'Logotipo Illustrator', width: 128, height: 128},
+  'ASSET-FERRAMENTA-5': {src: 'assets/icons/tools/after-effects.svg', alt: 'Logotipo After Effects', width: 128, height: 128},
+  'ASSET-FERRAMENTA-6': {src: 'assets/icons/tools/marmoset-toolbag.webp', alt: 'Logotipo Marmoset Toolbag', width: 1024, height: 128},
   'ASSET-PROJETO-04': {src: 'assets/portfolio/clinica.png', alt: 'Clínica Saúde+ em computador e celular', width: 1280, height: 720},
   'ASSET-PROJETO-05': {src: 'assets/portfolio/excel.png', alt: 'Landing page do curso Excel Pro em computador e celular', width: 1280, height: 720},
   'ASSET-PROJETO-06': {src: 'assets/portfolio/sabor-real.png', alt: 'Restaurante Sabor Real em computador e celular', width: 1280, height: 720},
