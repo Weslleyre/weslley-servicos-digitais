@@ -56,6 +56,9 @@
 /* Compact portfolio highlights after removal of project actions. */
 .portfolio-section .project-card>.asset{aspect-ratio:16/9}
 .portfolio-section .project-card>.asset img{width:100%;height:100%;object-fit:contain}
+.portfolio-art-link{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.portfolio-art-link .asset{aspect-ratio:16/9;border-radius:0;overflow:hidden}
+.portfolio-art-link img{width:100%;height:100%;object-fit:contain}
 .portfolio-section .feature{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:16px;padding:24px;min-height:0}
 .portfolio-section .feature h3{margin-top:12px}
 .portfolio-section .feature>.asset{width:100%;height:auto;min-height:0;aspect-ratio:16/9;overflow:hidden}
