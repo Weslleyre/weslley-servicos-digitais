@@ -1,6 +1,9 @@
 // Ícones fornecidos pelo usuário para Nossos Serviços da Home.
 // Demais espaços permanecem como placeholders até o envio dos respectivos assets.
 export const assets = {
+  'ASSET-PROJETO-01': {src: 'assets/portfolio/educa.png', alt: 'Plataforma Educa+ em smart TV, desktop e celular', width: 1280, height: 720},
+  'ASSET-PROJETO-02': {src: 'assets/portfolio/fitness.png', alt: 'Landing page de academia em desktop e celular', width: 1280, height: 720},
+  'ASSET-PROJETO-03': {src: 'assets/portfolio/decora.png', alt: 'Catálogo Decora em desktop, celular e tablet', width: 1280, height: 720},
   'ASSET-SERVICO-01': { src: 'assets/services/page02/websites-clean.png', alt: 'Website responsivo em computador e celular', width: 1536, height: 1024 },
   'ASSET-SERVICO-02': { src: 'assets/services/page02/landing-pages-clean.png', alt: 'Foguete e página de conversão', width: 1536, height: 1024 },
   'ASSET-SERVICO-03': { src: 'assets/services/page02/comercio-eletronico-clean.png', alt: 'Loja virtual com carrinho de compras', width: 1536, height: 1024 },
