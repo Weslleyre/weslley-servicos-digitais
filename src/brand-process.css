@@ -54,6 +54,8 @@
 .service-hover-preview img{display:block;width:100%;height:140px;object-fit:contain;border-radius:5px;background:#f2f3f5}
 .service-hover-preview span{display:block;padding:7px 3px 2px;font-size:12px;font-weight:700;color:var(--color-blue)}
 /* Compact portfolio highlights after removal of project actions. */
+.portfolio-section .project-card>.asset{aspect-ratio:16/9}
+.portfolio-section .project-card>.asset img{width:100%;height:100%;object-fit:contain}
 .portfolio-section .feature{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:16px;padding:24px;min-height:0}
 .portfolio-section .feature h3{margin-top:12px}
 .portfolio-section .feature>.asset{width:100%;height:auto;min-height:0;aspect-ratio:16/9;overflow:hidden}

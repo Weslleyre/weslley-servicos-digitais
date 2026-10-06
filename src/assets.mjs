@@ -1,6 +1,14 @@
 // Ícones fornecidos pelo usuário para Nossos Serviços da Home.
 // Demais espaços permanecem como placeholders até o envio dos respectivos assets.
 export const assets = {
+  'ASSET-PROJETO-04': {src: 'assets/portfolio/clinica.png', alt: 'Clínica Saúde+ em computador e celular', width: 1280, height: 720},
+  'ASSET-PROJETO-05': {src: 'assets/portfolio/excel.png', alt: 'Landing page do curso Excel Pro em computador e celular', width: 1280, height: 720},
+  'ASSET-PROJETO-06': {src: 'assets/portfolio/sabor-real.png', alt: 'Restaurante Sabor Real em computador e celular', width: 1280, height: 720},
+  'ASSET-PROJETO-07': {src: 'assets/portfolio/alfa.png', alt: 'Alfa Construtora em computador e celular', width: 1280, height: 720},
+  'ASSET-PROJETO-08': {src: 'assets/portfolio/verao.png', alt: 'Campanha Verão com posts e stories', width: 1280, height: 720},
+  'ASSET-PROJETO-09': {src: 'assets/portfolio/industek.png', alt: 'Catálogo industrial interativo Industek em computador e celular', width: 1280, height: 720},
+  'ASSET-PROJETO-10': {src: 'assets/portfolio/alpha-grupo.png', alt: 'Apresentação comercial Alpha Grupo em computador e celular', width: 1280, height: 720},
+  'ASSET-PROJETO-11': {src: 'assets/portfolio/newsletter.png', alt: 'Newsletter mensal FuturaMail em computador e celular', width: 1280, height: 720},
   'ASSET-PROJETO-01': {src: 'assets/portfolio/educa.png', alt: 'Plataforma Educa+ em smart TV, desktop e celular', width: 1280, height: 720},
   'ASSET-PROJETO-02': {src: 'assets/portfolio/fitness.png', alt: 'Landing page de academia em desktop e celular', width: 1280, height: 720},
   'ASSET-PROJETO-03': {src: 'assets/portfolio/decora.png', alt: 'Catálogo Decora em desktop, celular e tablet', width: 1280, height: 720},
