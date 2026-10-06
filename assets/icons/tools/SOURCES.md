@@ -10,3 +10,5 @@ Arquivos oficiais, baixados em 6 de outubro de 2026. Cores e desenhos preservado
 - Marmoset Toolbag: https://marmoset.co/shop/ — https://marmoset.co/wp-content/uploads/2024/10/tb5_logo_long_black.png (o servidor entregou WebP sem perdas; preservado como .webp, 1024×128).
 
 Atualização do Marmoset: substituído pela imagem fornecida pelo usuário: https://static.wixstatic.com/media/ba021f_9972a7d13efb49b592e83bbc69e0dec8~mv2.png/v1/fit/w_500,h_500,q_90/file.png
+
+Blender em PNG transparente: blender_icon_1024x1024.png do kit oficial https://download.blender.org/branding/blender_logo_kit.zip. 3ds Max em PNG transparente: conversão do SVG oficial já registrado, sem alterar seu desenho ou cores.

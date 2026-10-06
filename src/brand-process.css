@@ -2,13 +2,24 @@
 .tools{grid-column:1/-1}
 #formulario{background:var(--color-white);color:var(--color-black)}
 #formulario .contact-grid>div:first-child em,#formulario #canais dt{color:var(--color-black)}
-.tools .tools-grid{grid-template-columns:repeat(6,minmax(0,1fr));max-width:none;gap:16px 10px;align-items:start}
-.tools .tool-item{margin:0;min-width:0;text-align:center}
-.tools .tool-item .asset{width:100%;max-width:none;height:64px;aspect-ratio:auto;display:flex;align-items:center;justify-content:center}
-.tools .tool-item img{width:100%;height:100%;object-fit:contain;max-width:112px}
+.values-tools .values{grid-column:1/-1}
+.values .value-icon{width:76px;height:76px;margin-inline:auto;display:flex;align-items:center;justify-content:center;border:1px solid currentColor;border-radius:12px}
+.value-icon svg{width:54px;height:54px;display:block}
+.value-icon-0{color:var(--color-blue)}.value-icon-1{color:var(--color-pink)}.value-icon-2{color:var(--color-white)}.value-icon-3{color:var(--color-lime)}
+.values article{min-width:0;padding-inline:12px;border-left:1px solid rgb(254 254 255 / 20%)}
+.tools h2 em{color:var(--color-blue)}
+.tools .tools-grid{grid-template-columns:repeat(6,minmax(0,1fr));max-width:none;gap:16px 10px;align-items:stretch}
+.tools .tool-item{margin:0;min-width:0;text-align:center;padding:16px 8px;border:1px solid rgb(254 254 255 / 35%);border-radius:12px}
+.tools .tool-item .asset{width:100%;max-width:none;height:80px;aspect-ratio:auto;display:flex;align-items:center;justify-content:center}
+.tools .tool-item img{width:72px;height:72px;object-fit:contain;max-width:100%}
+.tools .tool-item:nth-child(1) img{width:80px;height:80px}
+.tools .tool-item:nth-child(2) img{width:80px;height:80px}
+.tools .tool-item:nth-child(6) .asset{width:80px;margin-inline:auto;background:var(--color-white);border-radius:8px;overflow:hidden}
+.tools .tool-item:nth-child(6) img{width:112px;height:112px;max-width:none;flex:none}
 .tools .tool-item figcaption{margin-top:10px;font-size:.75rem;line-height:1.4;overflow-wrap:anywhere;color:var(--color-black)}
 @media(max-width:900px){.tools .tools-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 16px}}
 @media(max-width:400px){.tools .tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:800px){.values article{border-left:0;padding-inline:0}}
 .brand-wordmark{display:block;width:156px;height:auto;overflow:visible;color:var(--color-white)}
 .brand-wordmark .brand-accent{fill:var(--color-lime)}
 .brand-wordmark .brand-caption{fill:var(--color-lime)}

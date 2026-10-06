@@ -1,8 +1,8 @@
 // Ícones fornecidos pelo usuário para Nossos Serviços da Home.
 // Demais espaços permanecem como placeholders até o envio dos respectivos assets.
 export const assets = {
-  'ASSET-FERRAMENTA-1': {src: 'assets/icons/tools/blender.svg', alt: 'Logotipo Blender 3D', width: 128, height: 128},
-  'ASSET-FERRAMENTA-2': {src: 'assets/icons/tools/3ds-max.svg', alt: 'Logotipo 3ds Max', width: 128, height: 128},
+  'ASSET-FERRAMENTA-1': {src: 'assets/icons/tools/blender.png', alt: 'Logotipo Blender 3D', width: 1024, height: 1024},
+  'ASSET-FERRAMENTA-2': {src: 'assets/icons/tools/3ds-max.png', alt: 'Logotipo 3ds Max', width: 600, height: 600},
   'ASSET-FERRAMENTA-3': {src: 'assets/icons/tools/photoshop.svg', alt: 'Logotipo Photoshop', width: 128, height: 128},
   'ASSET-FERRAMENTA-4': {src: 'assets/icons/tools/illustrator.svg', alt: 'Logotipo Illustrator', width: 128, height: 128},
   'ASSET-FERRAMENTA-5': {src: 'assets/icons/tools/after-effects.svg', alt: 'Logotipo After Effects', width: 128, height: 128},
