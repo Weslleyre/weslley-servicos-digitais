@@ -1,6 +1,14 @@
 // Ícones fornecidos pelo usuário para Nossos Serviços da Home.
 // Demais espaços permanecem como placeholders até o envio dos respectivos assets.
 export const assets = {
+  'ASSET-ANTES-1': {src: 'assets/portfolio/antes-depois/site-institucional-antes.png', alt: 'site institucional — antes', width: 1280, height: 853},
+  'ASSET-DEPOIS-1': {src: 'assets/portfolio/antes-depois/site-institucional-depois.png', alt: 'site institucional — depois', width: 1280, height: 853},
+  'ASSET-ANTES-2': {src: 'assets/portfolio/antes-depois/perfil-profissional-antes.png', alt: 'perfil profissional — antes', width: 1280, height: 853},
+  'ASSET-DEPOIS-2': {src: 'assets/portfolio/antes-depois/perfil-profissional-depois.png', alt: 'perfil profissional — depois', width: 1280, height: 853},
+  'ASSET-ANTES-3': {src: 'assets/portfolio/antes-depois/pagina-vendas-antes.png', alt: 'pagina vendas — antes', width: 1280, height: 853},
+  'ASSET-DEPOIS-3': {src: 'assets/portfolio/antes-depois/pagina-vendas-depois.png', alt: 'pagina vendas — depois', width: 1280, height: 853},
+  'ASSET-ANTES-4': {src: 'assets/portfolio/antes-depois/catalogo-produtos-antes.png', alt: 'catalogo produtos — antes', width: 1280, height: 853},
+  'ASSET-DEPOIS-4': {src: 'assets/portfolio/antes-depois/catalogo-produtos-depois.png', alt: 'catalogo produtos — depois', width: 1280, height: 853},
   'ASSET-FERRAMENTA-1': {src: 'assets/icons/tools/blender.png', alt: 'Logotipo Blender 3D', width: 1024, height: 1024},
   'ASSET-FERRAMENTA-2': {src: 'assets/icons/tools/3ds-max.png', alt: 'Logotipo 3ds Max', width: 600, height: 600},
   'ASSET-FERRAMENTA-3': {src: 'assets/icons/tools/photoshop.svg', alt: 'Logotipo Photoshop', width: 128, height: 128},

@@ -1,4 +1,20 @@
 /* Shared identity and process system. Uses only the site's global palette. */
+.comparison-card .comparison{aspect-ratio:var(--comparison-ratio)}
+.comparison img{width:100%;height:100%;object-fit:contain;user-select:none}
+.comparison-open{position:absolute;inset:0;width:100%;border:0;background:transparent;cursor:zoom-in;padding:0}
+.comparison-open>span{position:absolute;right:8px;bottom:8px;background:var(--color-black);color:var(--color-white);width:30px;height:30px;border-radius:4px;font-size:22px;line-height:30px}
+.comparison-handle{position:absolute;left:var(--split);top:0;bottom:0;width:44px;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;cursor:ew-resize;touch-action:none;z-index:2}
+.comparison-handle::before{content:"";position:absolute;top:0;bottom:0;width:2px;background:var(--color-white);box-shadow:0 0 3px var(--color-black)}
+.comparison-handle>span{position:relative;width:34px;height:34px;border:2px solid var(--color-white);border-radius:50%;background:var(--color-blue);color:var(--color-white);font-size:20px;text-align:center;line-height:28px}
+.comparison-handle:focus-visible,.comparison-open:focus-visible{outline:3px solid var(--color-pink);outline-offset:-3px}
+body.comparison-opened{overflow:hidden}
+#comparison-dialog{width:min(90vw,calc((90dvh - 130px) * 1280 / 853));max-width:90vw;max-height:90dvh;border:1px solid rgb(254 254 255 / 50%);border-radius:12px;background:rgb(254 254 255 / 22%);padding:8px;overflow:auto;margin:auto}
+#comparison-dialog::backdrop{background:rgb(0 0 0 / 75%);backdrop-filter:blur(4px)}
+.comparison-modal-panel{position:relative;padding-top:44px}
+.comparison-close{position:absolute;top:0;right:0;width:40px;height:40px;border:0;border-radius:6px;background:var(--color-white);color:var(--color-black);font-size:28px;cursor:pointer}
+#comparison-dialog .comparison-card{background:var(--color-white);color:var(--color-black)}
+#comparison-dialog .comparison-control{padding:12px}
+@media(max-width:560px){#comparison-dialog{width:94vw;max-width:94vw}}
 .tools{grid-column:1/-1}
 #formulario{background:var(--color-white);color:var(--color-black)}
 #formulario .contact-grid>div:first-child em,#formulario #canais dt{color:var(--color-black)}

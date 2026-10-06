@@ -108,11 +108,69 @@ if(dialog && projectData){
   }));
   dialog.querySelector('.close-dialog').addEventListener('click',()=>dialog.close());
 }
-document.querySelectorAll('.comparison-control input').forEach(input=>input.addEventListener('input',()=>{
-  const card=input.closest('.comparison-card');
-  card.querySelector('.comparison').style.setProperty('--split',`${input.value}%`);
-  card.querySelector('output').textContent=`${input.value}% depois`;
-}));
+function bindComparison(card) {
+  const input = card.querySelector('input[type="range"]');
+  const stage = card.querySelector('.comparison');
+  const handle = card.querySelector('.comparison-handle');
+  function update(value) {
+    const split = Math.max(0,Math.min(100,Math.round(value)));
+    input.value = split;
+    stage.style.setProperty('--split',`${split}%`);
+    card.querySelector('output').textContent = `${split}% depois`;
+    handle.setAttribute('aria-valuenow',split);
+    handle.setAttribute('aria-valuetext',`${split}% depois`);
+  }
+  input.addEventListener('input',()=>update(input.value));
+  let pointer;
+  function move(event) {
+    const rect = stage.getBoundingClientRect();
+    update((event.clientX-rect.left)/rect.width*100);
+  }
+  handle.addEventListener('pointerdown',event=>{
+    if(event.button!==0)return;
+    event.preventDefault();event.stopPropagation();
+    pointer=event.pointerId;handle.focus();handle.setPointerCapture(pointer);move(event);
+  });
+  handle.addEventListener('pointermove',event=>{if(event.pointerId===pointer)move(event);});
+  function release(event){if(event.pointerId===pointer){pointer=undefined;if(handle.hasPointerCapture(event.pointerId))handle.releasePointerCapture(event.pointerId);}}
+  handle.addEventListener('pointerup',release);
+  handle.addEventListener('pointercancel',release);
+  handle.addEventListener('click',event=>event.stopPropagation());
+  handle.addEventListener('keydown',event=>{
+    const actions={ArrowLeft:-1,ArrowDown:-1,ArrowRight:1,ArrowUp:1,PageDown:-10,PageUp:10};
+    if(event.key in actions){event.preventDefault();update(Number(input.value)+actions[event.key]);}
+    if(event.key==='Home'||event.key==='End'){event.preventDefault();update(event.key==='Home'?0:100);}
+  });
+  update(input.value);
+}
+const comparisonDialog=document.querySelector('#comparison-dialog');
+if(comparisonDialog){
+  let opener;
+  document.querySelectorAll('.comparison-grid .comparison-card').forEach(card=>{
+    bindComparison(card);
+    const button=card.querySelector('.comparison-open');
+    let press;
+    button.addEventListener('pointerdown',event=>{press={x:event.clientX,y:event.clientY};});
+    button.addEventListener('click',event=>{
+      if(event.detail&&press&&Math.hypot(event.clientX-press.x,event.clientY-press.y)>8)return;
+      opener=button;
+      const enlarged=card.cloneNode(true);
+      enlarged.querySelector('.comparison-open').remove();
+      const input=enlarged.querySelector('input');input.id='comparison-modal-range';
+      enlarged.querySelector('label').htmlFor=input.id;
+      enlarged.querySelector('output').htmlFor=input.id;
+      enlarged.querySelectorAll('img').forEach(img=>{img.loading='eager';img.draggable=false;});
+      comparisonDialog.querySelector('.comparison-modal-content').replaceChildren(enlarged);
+      comparisonDialog.setAttribute('aria-label',`Comparação ampliada: ${card.dataset.comparisonName}`);
+      bindComparison(enlarged);
+      comparisonDialog.showModal();document.body.classList.add('comparison-opened');
+      comparisonDialog.querySelector('.comparison-close').focus();
+    });
+  });
+  comparisonDialog.querySelector('.comparison-close').addEventListener('click',()=>comparisonDialog.close());
+  comparisonDialog.addEventListener('click',event=>{if(event.target===comparisonDialog)comparisonDialog.close();});
+  comparisonDialog.addEventListener('close',()=>{document.body.classList.remove('comparison-opened');opener?.focus();});
+}
 document.querySelector('.contact-form')?.addEventListener('submit',event=>{
   event.preventDefault();
   document.querySelector('#form-status').textContent='Campos validados. Este é um protótipo: nenhuma mensagem foi enviada e seus dados não foram armazenados.';
