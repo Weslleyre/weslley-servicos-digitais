@@ -1,5 +1,7 @@
 /* Shared identity and process system. Uses only the site's global palette. */
 .tools{grid-column:1/-1}
+#formulario{background:var(--color-white);color:var(--color-black)}
+#formulario .contact-grid>div:first-child em,#formulario #canais dt{color:var(--color-black)}
 .tools .tools-grid{grid-template-columns:repeat(6,minmax(0,1fr));max-width:none;gap:16px 10px;align-items:start}
 .tools .tool-item{margin:0;min-width:0;text-align:center}
 .tools .tool-item .asset{width:100%;max-width:none;height:64px;aspect-ratio:auto;display:flex;align-items:center;justify-content:center}

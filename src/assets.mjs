@@ -6,7 +6,7 @@ export const assets = {
   'ASSET-FERRAMENTA-3': {src: 'assets/icons/tools/photoshop.svg', alt: 'Logotipo Photoshop', width: 128, height: 128},
   'ASSET-FERRAMENTA-4': {src: 'assets/icons/tools/illustrator.svg', alt: 'Logotipo Illustrator', width: 128, height: 128},
   'ASSET-FERRAMENTA-5': {src: 'assets/icons/tools/after-effects.svg', alt: 'Logotipo After Effects', width: 128, height: 128},
-  'ASSET-FERRAMENTA-6': {src: 'assets/icons/tools/marmoset-toolbag.webp', alt: 'Logotipo Marmoset Toolbag', width: 1024, height: 128},
+  'ASSET-FERRAMENTA-6': {src: 'assets/icons/tools/marmoset-toolbag.png', alt: 'Logotipo Marmoset Toolbag', width: 500, height: 500},
   'ASSET-PROJETO-04': {src: 'assets/portfolio/clinica.png', alt: 'Clínica Saúde+ em computador e celular', width: 1280, height: 720},
   'ASSET-PROJETO-05': {src: 'assets/portfolio/excel.png', alt: 'Landing page do curso Excel Pro em computador e celular', width: 1280, height: 720},
   'ASSET-PROJETO-06': {src: 'assets/portfolio/sabor-real.png', alt: 'Restaurante Sabor Real em computador e celular', width: 1280, height: 720},
