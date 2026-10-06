@@ -6,7 +6,7 @@ export function AssetPlaceholder(id, kind = '', eager = false) {
   const asset = assets[id];
   return asset ? `<div class="asset ${kind}"><img src="${escapeHTML(asset.src)}" alt="${escapeHTML(asset.alt)}" width="${asset.width}" height="${asset.height}" loading="${eager ? 'eager' : 'lazy'}" decoding="async"></div>` : `<div class="asset placeholder ${kind}" role="img" aria-label="Espaço reservado: ${id}" data-asset="${id}"><span>[${id}]</span></div>`;
 }
-export const Button = (text, href = 'contato.html#formulario', style = '') => `<a class="button ${style}" href="${href}">${text}</a>`;
+export const Button = (text, href = 'contato.html#formulario', style = '') => `<a class="button ${style}" href="${href}"${href.startsWith('https://') ? ' target="_blank" rel="noopener noreferrer"' : ''}>${text}</a>`;
 export function SolutionsOrbit() {
   const items = [
     ['landing-pages','Landing Pages',18,15], ['email-marketing','E-mail Marketing',50,10],
@@ -21,7 +21,7 @@ export function Header(active) {
 }
 export const SectionHeader = (title, eyebrow = '') => `<div class="section-heading">${eyebrow?`<span class="eyebrow">${eyebrow}</span>`:''}<h2>${title}</h2></div>`;
 export const HeroSection = ({id, eyebrow,title,text,actions,extra=''}) => `<section class="hero blue"><div class="container hero-grid"><div class="hero-copy"><span class="eyebrow">${eyebrow}</span><h1>${title}</h1><p>${text}</p>${extra}<div class="actions">${actions}</div></div>${AssetPlaceholder(`ASSET-${id}-HERO`,'hero-asset',true)}</div></section>`;
-export const CTASection = (title, text = '', top = false) => `<section class="cta blue"><div class="container cta-grid">${AssetPlaceholder('ASSET-CTA-FINAL','cta-asset')}<div><h2>${title}</h2>${text?`<p>${text}</p>`:''}</div><div class="actions">${Button('Solicitar orçamento')}${top?Button('Voltar ao topo','#topo','dark'):Button('Falar no WhatsApp','contato.html#canais','dark')}</div></div></section>`;
+export const CTASection = (title, text = '', top = false) => `<section class="cta blue"><div class="container cta-grid">${AssetPlaceholder('ASSET-CTA-FINAL','cta-asset')}<div><h2>${title}</h2>${text?`<p>${text}</p>`:''}</div><div class="actions">${Button('Solicitar orçamento')}${top?Button('Voltar ao topo','#topo','dark'):Button('Falar no WhatsApp','https://wa.me/5511999720479','dark')}</div></div></section>`;
 export const ProcessStep = (title, index, text) => `<li>${ProcessIcon(title)}<div><strong class="step-number">${String(index+1).padStart(2,'0')}</strong><h3>${title}</h3><p>${text}</p></div></li>`;
 export const Process = (steps) => `<section class="section process"><div class="container">${SectionHeader('Como trabalhamos')}<ol class="process-grid" style="--steps:${steps.length}">${steps.map((s,i)=>ProcessStep(s[0],i,s[1])).join('')}</ol></div></section>`;
 export const StatsCard = (label, index) => `<div class="stat">${AssetPlaceholder(`ASSET-INDICADOR-${index+1}`,'icon')}<div><strong>[NÚMERO]</strong><span>${label}</span></div></div>`;

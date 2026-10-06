@@ -117,6 +117,3 @@ document.querySelector('.contact-form')?.addEventListener('submit',event=>{
   event.preventDefault();
   document.querySelector('#form-status').textContent='Campos validados. Este é um protótipo: nenhuma mensagem foi enviada e seus dados não foram armazenados.';
 });
-document.querySelector('[data-whatsapp]')?.addEventListener('click',()=>{
-  document.querySelector('.contact-status').textContent='[WHATSAPP A CONFIRMAR] — o link será configurado na integração. Nenhuma conversa foi iniciada.';
-});
