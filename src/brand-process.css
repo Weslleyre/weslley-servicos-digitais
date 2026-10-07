@@ -1,4 +1,8 @@
 /* Shared identity and process system. Uses only the site's global palette. */
+.hero-asset:has(>img[src="assets/hero/contato-astronauta.png"]){border:0;background:transparent;padding:16px;overflow:visible}
+.hero-asset>img[src="assets/hero/contato-astronauta.png"]{display:block;width:min(800px,100%);height:auto;object-fit:contain}
+.hero-asset:has(>img[src="assets/hero/portfolio-interface.png"]){border:0;background:transparent;padding:16px;overflow:visible}
+.hero-asset>img[src="assets/hero/portfolio-interface.png"]{display:block;width:min(800px,100%);height:auto;object-fit:contain}
 .hero-asset:has(>img[src="assets/hero/servicos-foguete.png"]){border:0;background:transparent;padding:16px;overflow:visible}
 .hero-asset>img[src="assets/hero/servicos-foguete.png"]{display:block;width:min(800px,100%);height:auto;object-fit:contain;animation:services-hero-float 5s ease-in-out infinite}
 @keyframes services-hero-float{0%,100%{transform:translateY(3px)}50%{transform:translateY(-3px)}}
@@ -155,6 +159,8 @@ body.comparison-opened{overflow:hidden}
 .stat .count-value::after{content:attr(data-final);visibility:hidden;grid-area:1/1}
 .stat .count-value>span{grid-area:1/1;font:inherit;color:inherit;white-space:nowrap}
 .cycle-title,.cycle-description{display:grid}
+.hero-copy[data-cycle-interval="3000"]{min-width:0}
+.hero-copy[data-cycle-interval="3000"] .cycle-title{overflow-wrap:anywhere}
 .cycle-frame{grid-area:1/1;visibility:hidden;opacity:0;pointer-events:none}
 .cycle-frame.is-active{visibility:visible;opacity:1;pointer-events:auto}
 .cycle-title>.cycle-frame{position:relative}

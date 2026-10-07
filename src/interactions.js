@@ -6,6 +6,7 @@ document.querySelectorAll('[data-text-cycle]').forEach(group => {
   const descriptions = [...group.querySelectorAll('.cycle-description > .cycle-frame')];
   const original = titles.map(el => el.querySelector('.cycle-display').innerHTML);
   const words = titles.map(el => el.querySelector('.cycle-display').textContent);
+  const interval = Number(group.dataset.cycleInterval) || 6500;
   let index = 0, frame, timer;
   const show = next => {
     index = next;
@@ -37,9 +38,9 @@ document.querySelectorAll('[data-text-cycle]').forEach(group => {
         else{output.innerHTML=original[index];timer=setTimeout(cycle,6000);}
       }
       frame=requestAnimationFrame(decode);
-    }else timer=setTimeout(cycle,6500);
+    }else timer=setTimeout(cycle,interval);
   }
-  function restart(){clearTimeout(timer);cancelAnimationFrame(frame);show(0);if(!reducedMotion.matches)timer=setTimeout(cycle,6500);}
+  function restart(){clearTimeout(timer);cancelAnimationFrame(frame);show(0);if(!reducedMotion.matches)timer=setTimeout(cycle,interval);}
   reducedMotion.addEventListener('change',restart);restart();
 });
 const counters=[...document.querySelectorAll('[data-count]')];
