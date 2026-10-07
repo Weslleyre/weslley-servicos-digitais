@@ -67,7 +67,7 @@ body.comparison-opened{overflow:hidden}
 .process-grid li{position:relative;gap:16px}
 .process-grid li:not(:last-child)::after{content:"";position:absolute;top:37px;left:calc(100% + 6px);width:20px;border-top:2px dotted var(--color-lime)}
 .process-grid .step-number{font-size:2.5rem;font-weight:900}
-.process-grid li:nth-child(even) .step-number{color:var(--color-pink)}
+.process-grid .step-number{color:#0034fc}
 .service-card>.asset{display:flex;align-items:center;justify-content:center;padding:20px 5mm}
 .service-card>.asset img{display:block;height:auto;max-height:100%;width:100%;object-fit:contain;filter:drop-shadow(-5px 3px 5px rgb(0 0 0 / 16%))}
 .service-card:nth-child(2)>.asset{order:2}
@@ -134,7 +134,7 @@ body.comparison-opened{overflow:hidden}
 
 /* Final briefing: SVG replacements retain their existing containers. */
 .clean-icon{display:block;width:100%;height:100%;color:var(--color-blue)}
-.process-icon.clean-icon{width:70px;height:74px;overflow:visible}
+.process-icon.clean-icon{width:70px;height:74px;overflow:hidden;color:#0034fc;aspect-ratio:1}
 .hero .metric-icon .clean-icon{color:var(--color-white)}
 .hero .stat strong,.hero .stat>div>span{color:var(--color-white)}
 .stat .count-value{position:relative;display:grid;font-variant-numeric:tabular-nums;white-space:nowrap}
