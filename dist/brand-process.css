@@ -118,3 +118,16 @@ body.comparison-opened{overflow:hidden}
 .portfolio-section .feature:not(:first-child){padding:20px;gap:12px}
 @media(max-width:800px){.portfolio-section .feature:first-child{display:flex;grid-column:1/-1}.portfolio-section .feature{justify-content:flex-start}}
 @media(max-width:560px){.portfolio-section .feature:first-child{grid-column:auto}.portfolio-section .feature{padding:20px}}
+
+/* Provided contact artwork and Home logo: localized presentation. */
+.home-logo-wiggle{aspect-ratio:800/450;overflow:visible;animation:home-logo-wiggle 4.3s ease-in-out infinite;transform-origin:50% 55%}
+.home-logo-wiggle img{height:auto;object-fit:contain}
+@keyframes home-logo-wiggle{0%,100%{transform:translate(0,0) rotate(0deg)}19%{transform:translate(2px,-3px) rotate(-1deg)}43%{transform:translate(-3px,1px) rotate(.8deg)}68%{transform:translate(3px,2px) rotate(-.6deg)}86%{transform:translate(-1px,-2px) rotate(1deg)}}
+#formulario .contact-visual{grid-template-columns:1.1fr .9fr;align-items:center;gap:20px}
+#formulario .contact-visual>.asset{aspect-ratio:512/654;height:auto;min-height:0;max-height:none;border:0;background:none;padding:0;border-radius:0}
+#formulario .contact-visual>.asset img{width:100%;height:auto;object-fit:contain}
+#formulario .contact-grid>div:first-child em{color:#b0d21b;background:#000000;padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:3px}
+#formulario #canais a:not(.button){text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1100px) and (min-width:801px){#formulario .contact-visual{grid-template-columns:1fr}.contact-visual>.asset{width:min(100%,240px);justify-self:center}}
+@media(max-width:560px){#formulario .contact-visual{grid-template-columns:1fr}#formulario .contact-visual>.asset{width:min(100%,300px);justify-self:center}.home-logo-wiggle{max-width:100%}}
+@media(prefers-reduced-motion:reduce){.home-logo-wiggle{animation:none;transform:none}}
