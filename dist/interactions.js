@@ -1,4 +1,93 @@
 document.documentElement.classList.add('js');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+// The three requested motion systems use separate clocks and never move layout.
+document.querySelectorAll('[data-text-cycle]').forEach(group => {
+  const titles = [...group.querySelectorAll('.cycle-title > .cycle-frame')];
+  const descriptions = [...group.querySelectorAll('.cycle-description > .cycle-frame')];
+  const original = titles.map(el => el.querySelector('.cycle-display').innerHTML);
+  const words = titles.map(el => el.querySelector('.cycle-display').textContent);
+  let index = 0, frame, timer;
+  const show = next => {
+    index = next;
+    titles.forEach((el,i) => {el.querySelector('.cycle-display').innerHTML=original[i];el.classList.toggle('is-active',i===index);el.setAttribute('aria-hidden',String(i!==index));});
+    descriptions.forEach((el,i) => {el.classList.toggle('is-active',i===index);el.setAttribute('aria-hidden',String(i!==index));});
+  };
+  function cycle() {
+    if(reducedMotion.matches)return;
+    if(document.hidden){timer=setTimeout(cycle,1000);return;}
+    show((index+1)%titles.length);
+    if(group.dataset.textCycle==='decode'){
+      const output=titles[index].querySelector('.cycle-display'), text=words[index], started=performance.now();
+      const alphabet='ABCDEFGHJKLMNPQRSTUVWXYZ';
+      // Reserve each original word's width; random glyphs cannot change wrapping.
+      let offset=0;
+      const parts=text.split(/(\s+)/).map(word=>{
+        const start=offset;offset+=word.length;
+        if(/\s/.test(word))return {node:document.createTextNode(word)};
+        const node=document.createElement('span');node.className='decode-word';
+        const measure=document.createElement('span');measure.className='decode-measure';measure.textContent=word;measure.setAttribute('aria-hidden','true');
+        const random=document.createElement('span');random.className='decode-random';
+        node.append(measure,random);return {node,random,word,start};
+      });
+      output.replaceChildren(...parts.map(part=>part.node));
+      function decode(now){
+        const progress=Math.min(1,(now-started)/900);
+        parts.forEach(part=>{if(part.random)part.random.textContent=[...part.word].map((char,i)=>(part.start+i)/text.length<progress?char:alphabet[Math.floor(Math.random()*alphabet.length)]).join('');});
+        if(progress<1)frame=requestAnimationFrame(decode);
+        else{output.innerHTML=original[index];timer=setTimeout(cycle,6000);}
+      }
+      frame=requestAnimationFrame(decode);
+    }else timer=setTimeout(cycle,6500);
+  }
+  function restart(){clearTimeout(timer);cancelAnimationFrame(frame);show(0);if(!reducedMotion.matches)timer=setTimeout(cycle,6500);}
+  reducedMotion.addEventListener('change',restart);restart();
+});
+const counters=[...document.querySelectorAll('[data-count]')];
+const visibleCounters=new Set();
+const counterStarts=new WeakMap();
+const formatNumber=new Intl.NumberFormat('pt-BR');
+const countObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+  if(entry.isIntersecting){visibleCounters.add(entry.target);counterStarts.set(entry.target,performance.now());}
+  else visibleCounters.delete(entry.target);
+}));
+counters.forEach(el=>countObserver.observe(el));
+function animateCounts(now){
+  if(!document.hidden&&!reducedMotion.matches)visibleCounters.forEach(el=>{
+    const elapsed=(now-counterStarts.get(el))%7800;
+    const progress=Math.min(1,elapsed/1800);
+    const value=Math.round(Number(el.dataset.count)*(1-Math.pow(1-progress,3)));
+    el.firstElementChild.textContent=formatNumber.format(value)+el.dataset.suffix;
+  });
+  requestAnimationFrame(animateCounts);
+}
+reducedMotion.addEventListener('change',()=>counters.forEach(el=>{
+  el.firstElementChild.textContent=formatNumber.format(Number(el.dataset.count))+el.dataset.suffix;
+  counterStarts.set(el,performance.now());
+}));
+if(counters.length)requestAnimationFrame(animateCounts);
+const featureViewer=document.querySelector('.portfolio-section .featured-grid .feature');
+if(featureViewer){
+  const items=JSON.parse(document.querySelector('#service-gallery-data').textContent)[1].items;
+  let current=0;
+  const image=featureViewer.querySelector('img'),open=featureViewer.querySelector('button');
+  function advanceFeature(delta){
+    current=(current+delta+items.length)%items.length;
+    const item=items[current];
+    featureViewer.querySelector('.eyebrow').textContent=item.category;
+    featureViewer.querySelector('h3').textContent=item.title;
+    featureViewer.querySelector('p').textContent=item.description;
+    image.src=item.src;image.alt=item.alt;image.width=item.width;image.height=item.height;
+    featureViewer.dataset.category=item.category;
+    const tone=item.category==='Redes Sociais'?'pink':item.category==='Catálogos'?'lime':'blue';
+    featureViewer.style.backgroundColor=`var(--color-${tone})`;
+    featureViewer.style.color=`var(--color-${tone==='blue'?'white':'black'})`;
+    open.dataset.serviceIndex=current;open.setAttribute('aria-label',`Ampliar projeto: ${item.title}`);
+    document.querySelector('#feature-count').textContent=`${String(current+1).padStart(2,'0')} / ${items.length}`;
+    if(!reducedMotion.matches)featureViewer.animate([{opacity:.3,transform:'translateX(4px)'},{opacity:1,transform:'translateX(0)'}],{duration:200,easing:'ease-out'});
+  }
+  document.querySelector('[data-feature-prev]').addEventListener('click',()=>advanceFeature(-1));
+  document.querySelector('[data-feature-next]').addEventListener('click',()=>advanceFeature(1));
+}
 const serviceGallery = document.querySelector('#service-gallery');
 if (serviceGallery) {
   const groups = JSON.parse(document.querySelector('#service-gallery-data').textContent);
@@ -34,7 +123,7 @@ if (serviceGallery) {
     image.height = item.height;
     serviceGallery.style.setProperty('--gallery-ratio', item.width / item.height);
     document.querySelector('#service-gallery-title').textContent = item.title;
-    document.querySelector('#service-gallery-category').textContent = group.title;
+    document.querySelector('#service-gallery-category').textContent = item.category || group.title;
     document.querySelector('#service-gallery-description').textContent = item.description;
     document.querySelector('#service-gallery-count').textContent = `${imageIndex + 1} / ${group.items.length}`;
     serviceGallery.scrollTop = 0;
@@ -84,18 +173,6 @@ document.addEventListener('keydown', e => {
     menuButton.setAttribute('aria-expanded','false'); menu.classList.remove('is-open'); menuButton.focus();
   }
 });
-const filterButtons = [...document.querySelectorAll('[data-filter]')];
-const projectCards = [...document.querySelectorAll('[data-category]')];
-filterButtons.forEach(button => button.addEventListener('click', () => {
-  const category = button.dataset.filter;
-  filterButtons.forEach(item => item.setAttribute('aria-pressed',String(item === button)));
-  let count=0;
-  projectCards.forEach(card => {card.hidden = category !== 'Todos' && card.dataset.category !== category;if(!card.hidden) count++;});
-  document.querySelector('#filter-status').textContent=`${count} projeto${count===1?'':'s'} demonstrativo${count===1?'':'s'} — ${category}`;
-  document.querySelector('#empty-projects').hidden = count > 0;
-  const featureGrid=document.querySelector('.featured-grid');
-  featureGrid.hidden=![...featureGrid.children].some(el=>!el.hidden);
-}));
 const dialog = document.querySelector('#project-dialog');
 const projectData = document.querySelector('#project-data');
 if(dialog && projectData){
