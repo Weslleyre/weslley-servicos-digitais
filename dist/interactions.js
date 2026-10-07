@@ -7,15 +7,15 @@ document.querySelectorAll('[data-text-cycle]').forEach(group => {
   const original = titles.map(el => el.querySelector('.cycle-display').innerHTML);
   const words = titles.map(el => el.querySelector('.cycle-display').textContent);
   const interval = Number(group.dataset.cycleInterval) || 6500;
-  let index = 0, frame, timer;
+  let index = 0, frame, timer, inView = false;
   const show = next => {
     index = next;
+    group.querySelector('.cycle-title').setAttribute('aria-label',words[index]);
     titles.forEach((el,i) => {el.querySelector('.cycle-display').innerHTML=original[i];el.classList.toggle('is-active',i===index);el.setAttribute('aria-hidden',String(i!==index));});
     descriptions.forEach((el,i) => {el.classList.toggle('is-active',i===index);el.setAttribute('aria-hidden',String(i!==index));});
   };
   function cycle() {
-    if(reducedMotion.matches)return;
-    if(document.hidden){timer=setTimeout(cycle,1000);return;}
+    if(reducedMotion.matches || document.hidden || !inView)return;
     show((index+1)%titles.length);
     if(group.dataset.textCycle==='decode'){
       const output=titles[index].querySelector('.cycle-display'), text=words[index], started=performance.now();
@@ -40,32 +40,53 @@ document.querySelectorAll('[data-text-cycle]').forEach(group => {
       frame=requestAnimationFrame(decode);
     }else timer=setTimeout(cycle,interval);
   }
-  function restart(){clearTimeout(timer);cancelAnimationFrame(frame);show(0);if(!reducedMotion.matches)timer=setTimeout(cycle,interval);}
+  function schedule(){clearTimeout(timer);cancelAnimationFrame(frame);show(index);if(!reducedMotion.matches&&!document.hidden&&inView)timer=setTimeout(cycle,interval);}
+  function restart(){index=0;schedule();}
+  new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;schedule();}).observe(group);
+  document.addEventListener('visibilitychange',schedule);
+  window.addEventListener('pagehide',()=>{clearTimeout(timer);cancelAnimationFrame(frame);});
+  window.addEventListener('pageshow',schedule);
   reducedMotion.addEventListener('change',restart);restart();
 });
 const counters=[...document.querySelectorAll('[data-count]')];
 const visibleCounters=new Set();
 const counterStarts=new WeakMap();
 const formatNumber=new Intl.NumberFormat('pt-BR');
+let countsFrame;
 const countObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
   if(entry.isIntersecting){visibleCounters.add(entry.target);counterStarts.set(entry.target,performance.now());}
   else visibleCounters.delete(entry.target);
+  scheduleCounts();
 }));
 counters.forEach(el=>countObserver.observe(el));
 function animateCounts(now){
+  countsFrame=undefined;
   if(!document.hidden&&!reducedMotion.matches)visibleCounters.forEach(el=>{
     const elapsed=(now-counterStarts.get(el))%7800;
     const progress=Math.min(1,elapsed/1800);
     const value=Math.round(Number(el.dataset.count)*(1-Math.pow(1-progress,3)));
     el.firstElementChild.textContent=formatNumber.format(value)+el.dataset.suffix;
   });
-  requestAnimationFrame(animateCounts);
+  scheduleCounts();
+}
+function scheduleCounts(){
+  if(document.hidden||reducedMotion.matches||!visibleCounters.size){cancelAnimationFrame(countsFrame);countsFrame=undefined;return;}
+  if(countsFrame===undefined)countsFrame=requestAnimationFrame(animateCounts);
 }
 reducedMotion.addEventListener('change',()=>counters.forEach(el=>{
   el.firstElementChild.textContent=formatNumber.format(Number(el.dataset.count))+el.dataset.suffix;
   counterStarts.set(el,performance.now());
 }));
-if(counters.length)requestAnimationFrame(animateCounts);
+reducedMotion.addEventListener('change',scheduleCounts);
+document.addEventListener('visibilitychange',scheduleCounts);
+window.addEventListener('pagehide',()=>{cancelAnimationFrame(countsFrame);countsFrame=undefined;});
+window.addEventListener('pageshow',scheduleCounts);
+const movingAssets=[...document.querySelectorAll('.home-logo-wiggle,.orbit-item img,#formulario .contact-visual>.asset img,.hero-asset img[src="assets/hero/servicos-foguete.png"]')];
+const assetsInView=new Set();
+const pauseHiddenAssets=()=>movingAssets.forEach(el=>el.classList.toggle('motion-offscreen',document.hidden||!assetsInView.has(el)));
+const motionObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)assetsInView.add(entry.target);else assetsInView.delete(entry.target);});pauseHiddenAssets();});
+movingAssets.forEach(el=>motionObserver.observe(el));
+document.addEventListener('visibilitychange',pauseHiddenAssets);
 const featureViewer=document.querySelector('.portfolio-section .featured-grid .feature');
 if(featureViewer){
   const items=JSON.parse(document.querySelector('#service-gallery-data').textContent)[1].items;
@@ -178,13 +199,19 @@ const dialog = document.querySelector('#project-dialog');
 const projectData = document.querySelector('#project-data');
 if(dialog && projectData){
   const projects=JSON.parse(projectData.textContent);
+  let opener;
   document.querySelectorAll('[data-project]').forEach(button=>button.addEventListener('click',()=>{
+    opener=button;
     const project=projects.find(p=>p.id===button.dataset.project);
     document.querySelector('#dialog-title').textContent=project.title;
     document.querySelector('#dialog-description').textContent=project.description;
-    dialog.showModal();
+    const image=document.querySelector('#dialog-image');
+    image.src=project.src;image.alt=project.alt;image.width=project.width;image.height=project.height;
+    dialog.showModal();document.body.classList.add('gallery-open');
   }));
   dialog.querySelector('.close-dialog').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+  dialog.addEventListener('close',()=>{document.body.classList.remove('gallery-open');opener?.focus();});
 }
 function bindComparison(card) {
   const input = card.querySelector('input[type="range"]');

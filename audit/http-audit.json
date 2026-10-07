@@ -1,0 +1,405 @@
+{
+  "results": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "file": "servicos.html",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "file": "portfolio.html",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "file": "contato.html",
+      "status": 200,
+      "type": "text/html; charset=utf-8"
+    },
+    {
+      "file": "styles.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8"
+    },
+    {
+      "file": "brand-process.css",
+      "status": 200,
+      "type": "text/css; charset=utf-8"
+    },
+    {
+      "file": "interactions.js",
+      "status": 200,
+      "type": "text/javascript; charset=utf-8"
+    },
+    {
+      "file": "robots.txt",
+      "status": 200,
+      "type": "text/plain; charset=utf-8"
+    },
+    {
+      "file": "sitemap.xml",
+      "status": 200,
+      "type": "application/xml; charset=utf-8"
+    },
+    {
+      "file": "assets/brand/logotipo-home.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/sites-institucionais.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/landing-pages.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/lojas-virtuais.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/redes-sociais.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/email-marketing.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/catalogos-digitais.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/apresentacoes-corporativas.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/icons/agilidade.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/icons/estrategia.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/icons/design.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/icons/conversao.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/icons/inovacao.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/illustrations/banner/landing-pages.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/illustrations/banner/notebook-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/illustrations/banner/email-marketing-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/illustrations/banner/catalogos.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/illustrations/banner/redes-sociais-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/illustrations/banner/campanhas-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/illustrations/banner/apresentacoes.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/illustrations/banner/dashboard.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/illustrations/banner/lojas-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/portfolio/fitness.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/educa.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/decora.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/clinica.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/excel.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/illustrations/personagem-base-estendida.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/hero/servicos-foguete.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/page02/websites-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/page02/landing-pages-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/page02/comercio-eletronico-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/page02/redes-sociais-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/page02/conteudo-digital-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/page02/apresentacoes-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/page02/marketing-digital-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/page02/materiais-digitais-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/page02/educacao-digital-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/hero/portfolio-interface.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/services/page02/sistemas-presenca-clean.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/portfolio/sabor-real.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/alfa.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/verao.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/industek.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/alpha-grupo.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/newsletter.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/antes-depois/site-institucional-antes.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/antes-depois/perfil-profissional-antes.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/antes-depois/site-institucional-depois.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/antes-depois/perfil-profissional-depois.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/antes-depois/pagina-vendas-antes.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/antes-depois/pagina-vendas-depois.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/antes-depois/catalogo-produtos-antes.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/portfolio/antes-depois/catalogo-produtos-depois.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/hero/contato-astronauta.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/icons/tools/blender.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/icons/tools/3ds-max.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/icons/tools/photoshop.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/tools/illustrator.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/tools/after-effects.svg",
+      "status": 200,
+      "type": "image/svg+xml"
+    },
+    {
+      "file": "assets/icons/tools/marmoset-toolbag.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/contact/whatsapp.png",
+      "status": 200,
+      "type": "image/png"
+    },
+    {
+      "file": "assets/service-galleries/05/06.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/service-galleries/05/01.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/service-galleries/01/02.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/service-galleries/10/07.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/service-galleries/04/06.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/service-galleries/02/03.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/service-galleries/01/03.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/service-galleries/01/06.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "file": "assets/service-galleries/04/04.webp",
+      "status": 200,
+      "type": "image/webp"
+    }
+  ],
+  "missingRouteStatus": 404
+}

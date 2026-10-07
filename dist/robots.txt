@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+Sitemap: https://weslley-3dezao-digitais.quick-cloud-3278.chatgpt.site/sitemap.xml

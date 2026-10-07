@@ -159,8 +159,12 @@ body.comparison-opened{overflow:hidden}
 .stat .count-value::after{content:attr(data-final);visibility:hidden;grid-area:1/1}
 .stat .count-value>span{grid-area:1/1;font:inherit;color:inherit;white-space:nowrap}
 .cycle-title,.cycle-description{display:grid}
-.hero-copy[data-cycle-interval="3000"]{min-width:0}
-.hero-copy[data-cycle-interval="3000"] .cycle-title{overflow-wrap:anywhere}
+.motion-offscreen{animation-play-state:paused!important}
+.project-dialog-art{margin-top:24px;aspect-ratio:16/9}
+.service-name{min-height:24px}
+.gallery-close,.gallery-arrow{min-width:44px;min-height:44px}
+.hero-copy[data-text-cycle="hero"]{min-width:0}
+.hero-copy[data-text-cycle="hero"] .cycle-title{overflow-wrap:anywhere}
 .cycle-frame{grid-area:1/1;visibility:hidden;opacity:0;pointer-events:none}
 .cycle-frame.is-active{visibility:visible;opacity:1;pointer-events:auto}
 .cycle-title>.cycle-frame{position:relative}

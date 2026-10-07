@@ -1,0 +1,520 @@
+[
+  {
+    "original": "assets/portfolio/educa.png",
+    "target": "assets/portfolio/educa.webp",
+    "before": 1180567,
+    "after": 908614,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/fitness.png",
+    "target": "assets/portfolio/fitness.webp",
+    "before": 1151042,
+    "after": 853558,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/decora.png",
+    "target": "assets/portfolio/decora.webp",
+    "before": 1096458,
+    "after": 778556,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/clinica.png",
+    "target": "assets/portfolio/clinica.webp",
+    "before": 1105919,
+    "after": 831320,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/excel.png",
+    "target": "assets/portfolio/excel.webp",
+    "before": 1010551,
+    "after": 750830,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/sabor-real.png",
+    "target": "assets/portfolio/sabor-real.webp",
+    "before": 1445420,
+    "after": 1129306,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/alfa.png",
+    "target": "assets/portfolio/alfa.webp",
+    "before": 1318777,
+    "after": 1029474,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/verao.png",
+    "target": "assets/portfolio/verao.webp",
+    "before": 1238608,
+    "after": 936254,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/industek.png",
+    "target": "assets/portfolio/industek.webp",
+    "before": 1343130,
+    "after": 1020962,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/alpha-grupo.png",
+    "target": "assets/portfolio/alpha-grupo.webp",
+    "before": 1111640,
+    "after": 844182,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/newsletter.png",
+    "target": "assets/portfolio/newsletter.webp",
+    "before": 1129737,
+    "after": 855964,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/antes-depois/site-institucional-antes.png",
+    "target": "assets/portfolio/antes-depois/site-institucional-antes.webp",
+    "before": 988309,
+    "after": 750106,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/antes-depois/site-institucional-depois.png",
+    "target": "assets/portfolio/antes-depois/site-institucional-depois.webp",
+    "before": 992738,
+    "after": 743886,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/antes-depois/perfil-profissional-antes.png",
+    "target": "assets/portfolio/antes-depois/perfil-profissional-antes.webp",
+    "before": 836430,
+    "after": 611638,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/antes-depois/perfil-profissional-depois.png",
+    "target": "assets/portfolio/antes-depois/perfil-profissional-depois.webp",
+    "before": 897390,
+    "after": 660582,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/antes-depois/pagina-vendas-antes.png",
+    "target": "assets/portfolio/antes-depois/pagina-vendas-antes.webp",
+    "before": 818899,
+    "after": 598866,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/antes-depois/pagina-vendas-depois.png",
+    "target": "assets/portfolio/antes-depois/pagina-vendas-depois.webp",
+    "before": 840255,
+    "after": 623774,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/antes-depois/catalogo-produtos-antes.png",
+    "target": "assets/portfolio/antes-depois/catalogo-produtos-antes.webp",
+    "before": 809086,
+    "after": 593554,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/portfolio/antes-depois/catalogo-produtos-depois.png",
+    "target": "assets/portfolio/antes-depois/catalogo-produtos-depois.webp",
+    "before": 790701,
+    "after": 571458,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/05/01.png",
+    "target": "assets/service-galleries/05/01.webp",
+    "before": 1512692,
+    "after": 1138754,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/05/06.png",
+    "target": "assets/service-galleries/05/06.webp",
+    "before": 1512588,
+    "after": 1172464,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/10/07.png",
+    "target": "assets/service-galleries/10/07.webp",
+    "before": 1397906,
+    "after": 1070414,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/02/03.png",
+    "target": "assets/service-galleries/02/03.webp",
+    "before": 1342028,
+    "after": 1037032,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/01/02.png",
+    "target": "assets/service-galleries/01/02.webp",
+    "before": 1331075,
+    "after": 1040798,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/05/03.png",
+    "target": "assets/service-galleries/05/03.webp",
+    "before": 1329969,
+    "after": 970434,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/01/06.png",
+    "target": "assets/service-galleries/01/06.webp",
+    "before": 1328895,
+    "after": 1019940,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/04/06.png",
+    "target": "assets/service-galleries/04/06.webp",
+    "before": 1322216,
+    "after": 1033740,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/01/03.png",
+    "target": "assets/service-galleries/01/03.webp",
+    "before": 1319773,
+    "after": 1032692,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/05/07.png",
+    "target": "assets/service-galleries/05/07.webp",
+    "before": 1317796,
+    "after": 994756,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/04/01.png",
+    "target": "assets/service-galleries/04/01.webp",
+    "before": 1309402,
+    "after": 976908,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/04/04.png",
+    "target": "assets/service-galleries/04/04.webp",
+    "before": 1298434,
+    "after": 1001516,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/10/05.png",
+    "target": "assets/service-galleries/10/05.webp",
+    "before": 1286578,
+    "after": 939054,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/05/04.png",
+    "target": "assets/service-galleries/05/04.webp",
+    "before": 1283836,
+    "after": 933780,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/01/08.png",
+    "target": "assets/service-galleries/01/08.webp",
+    "before": 1280965,
+    "after": 969772,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/08/05.png",
+    "target": "assets/service-galleries/08/05.webp",
+    "before": 1271034,
+    "after": 977498,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/05/02.png",
+    "target": "assets/service-galleries/05/02.webp",
+    "before": 1257898,
+    "after": 899472,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/02/01.png",
+    "target": "assets/service-galleries/02/01.webp",
+    "before": 1249881,
+    "after": 950004,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/02/04.png",
+    "target": "assets/service-galleries/02/04.webp",
+    "before": 1242738,
+    "after": 946644,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/04/05.png",
+    "target": "assets/service-galleries/04/05.webp",
+    "before": 1238134,
+    "after": 937068,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/08/04.png",
+    "target": "assets/service-galleries/08/04.webp",
+    "before": 1235880,
+    "after": 960858,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/01/04.png",
+    "target": "assets/service-galleries/01/04.webp",
+    "before": 1235234,
+    "after": 930564,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/05/05.png",
+    "target": "assets/service-galleries/05/05.webp",
+    "before": 1227300,
+    "after": 927250,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/07/05.png",
+    "target": "assets/service-galleries/07/05.webp",
+    "before": 1226243,
+    "after": 900160,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/10/04.png",
+    "target": "assets/service-galleries/10/04.webp",
+    "before": 1219318,
+    "after": 879752,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/06/01.png",
+    "target": "assets/service-galleries/06/01.webp",
+    "before": 1219224,
+    "after": 881216,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/10/06.png",
+    "target": "assets/service-galleries/10/06.webp",
+    "before": 1211796,
+    "after": 899550,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/04/02.png",
+    "target": "assets/service-galleries/04/02.webp",
+    "before": 1196953,
+    "after": 865128,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/07/01.png",
+    "target": "assets/service-galleries/07/01.webp",
+    "before": 1174457,
+    "after": 877286,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/02/06.png",
+    "target": "assets/service-galleries/02/06.webp",
+    "before": 1161229,
+    "after": 874474,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/10/01.png",
+    "target": "assets/service-galleries/10/01.webp",
+    "before": 1157077,
+    "after": 873138,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/10/02.png",
+    "target": "assets/service-galleries/10/02.webp",
+    "before": 1147902,
+    "after": 826454,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/07/04.png",
+    "target": "assets/service-galleries/07/04.webp",
+    "before": 1139244,
+    "after": 864482,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/09/01.png",
+    "target": "assets/service-galleries/09/01.webp",
+    "before": 1137228,
+    "after": 851376,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/09/03.png",
+    "target": "assets/service-galleries/09/03.webp",
+    "before": 1132935,
+    "after": 850100,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/08/02.png",
+    "target": "assets/service-galleries/08/02.webp",
+    "before": 1130151,
+    "after": 856270,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/10/03.png",
+    "target": "assets/service-galleries/10/03.webp",
+    "before": 1123288,
+    "after": 805722,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/08/06.png",
+    "target": "assets/service-galleries/08/06.webp",
+    "before": 1121956,
+    "after": 855902,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/09/05.png",
+    "target": "assets/service-galleries/09/05.webp",
+    "before": 1090210,
+    "after": 816294,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/09/02.png",
+    "target": "assets/service-galleries/09/02.webp",
+    "before": 1089213,
+    "after": 815292,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/01/07.png",
+    "target": "assets/service-galleries/01/07.webp",
+    "before": 1086965,
+    "after": 827716,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/06/04.png",
+    "target": "assets/service-galleries/06/04.webp",
+    "before": 1084399,
+    "after": 822766,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/03/01.png",
+    "target": "assets/service-galleries/03/01.webp",
+    "before": 1083637,
+    "after": 803790,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/01/05.png",
+    "target": "assets/service-galleries/01/05.webp",
+    "before": 1075461,
+    "after": 789980,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/07/02.png",
+    "target": "assets/service-galleries/07/02.webp",
+    "before": 1073215,
+    "after": 788776,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/06/02.png",
+    "target": "assets/service-galleries/06/02.webp",
+    "before": 1066511,
+    "after": 814748,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/07/03.png",
+    "target": "assets/service-galleries/07/03.webp",
+    "before": 1065906,
+    "after": 805256,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/09/04.png",
+    "target": "assets/service-galleries/09/04.webp",
+    "before": 1065386,
+    "after": 820132,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/02/02.png",
+    "target": "assets/service-galleries/02/02.webp",
+    "before": 1054604,
+    "after": 797972,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/06/05.png",
+    "target": "assets/service-galleries/06/05.webp",
+    "before": 1044320,
+    "after": 779622,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/02/05.png",
+    "target": "assets/service-galleries/02/05.webp",
+    "before": 1043075,
+    "after": 772718,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/06/03.png",
+    "target": "assets/service-galleries/06/03.webp",
+    "before": 1035823,
+    "after": 761414,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/08/01.png",
+    "target": "assets/service-galleries/08/01.webp",
+    "before": 1017247,
+    "after": 755036,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/04/03.png",
+    "target": "assets/service-galleries/04/03.webp",
+    "before": 1015529,
+    "after": 794990,
+    "pixelIdentical": true
+  },
+  {
+    "original": "assets/service-galleries/01/01.png",
+    "target": "assets/service-galleries/01/01.webp",
+    "before": 1008670,
+    "after": 767874,
+    "pixelIdentical": true
+  }
+]

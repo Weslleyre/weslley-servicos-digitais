@@ -1,0 +1,422 @@
+{
+  "responsive": [
+    {
+      "page": "index",
+      "width": 320,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 360,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 390,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 430,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 560,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 768,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 800,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 820,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 1024,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 1100,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 1280,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 1440,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 1920,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 2560,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "index",
+      "width": 3840,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 320,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 360,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 390,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 430,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 560,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 768,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 800,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 820,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 1024,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 1100,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 1280,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 1440,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 1920,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 2560,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "servicos",
+      "width": 3840,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 320,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 360,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 390,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 430,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 560,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 768,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 800,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 820,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 1024,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 1100,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 1280,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 1440,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 1920,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 2560,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "portfolio",
+      "width": 3840,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 320,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 360,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 390,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 430,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 560,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 768,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 800,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 820,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 1024,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 1100,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 1280,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 1440,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 1920,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 2560,
+      "brokenImages": [],
+      "overflow": false
+    },
+    {
+      "page": "contato",
+      "width": 3840,
+      "brokenImages": [],
+      "overflow": false
+    }
+  ],
+  "pages": [
+    {
+      "page": "index",
+      "errors": [],
+      "dom": {
+        "activeNav": "index.html",
+        "footerCnpj": "CNPJ: 14.319.613/0001-09© 2026 Weslley 3Dezão. Todos os direitos reservados.",
+        "h1": 1,
+        "heroImage": "eager",
+        "invalidSvg": 0,
+        "main": 1,
+        "missingAlt": 0,
+        "visiblePlaceholders": []
+      }
+    },
+    {
+      "page": "servicos",
+      "errors": [],
+      "dom": {
+        "activeNav": "servicos.html",
+        "footerCnpj": "CNPJ: 14.319.613/0001-09© 2026 Weslley 3Dezão. Todos os direitos reservados.",
+        "h1": 1,
+        "heroImage": "eager",
+        "invalidSvg": 0,
+        "main": 1,
+        "missingAlt": 0,
+        "visiblePlaceholders": []
+      }
+    },
+    {
+      "page": "portfolio",
+      "errors": [],
+      "dom": {
+        "activeNav": "portfolio.html",
+        "footerCnpj": "CNPJ: 14.319.613/0001-09© 2026 Weslley 3Dezão. Todos os direitos reservados.",
+        "h1": 1,
+        "heroImage": "eager",
+        "invalidSvg": 0,
+        "main": 1,
+        "missingAlt": 0,
+        "visiblePlaceholders": []
+      }
+    },
+    {
+      "page": "contato",
+      "errors": [],
+      "dom": {
+        "activeNav": "contato.html",
+        "footerCnpj": "CNPJ: 14.319.613/0001-09© 2026 Weslley 3Dezão. Todos os direitos reservados.",
+        "h1": 1,
+        "heroImage": "eager",
+        "invalidSvg": 0,
+        "main": 1,
+        "missingAlt": 0,
+        "visiblePlaceholders": []
+      }
+    }
+  ]
+}

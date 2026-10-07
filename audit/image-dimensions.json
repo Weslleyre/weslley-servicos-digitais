@@ -1,0 +1,101 @@
+[
+  {
+    "page": "index.html",
+    "src": "assets/illustrations/banner/notebook-clean.png",
+    "loading": "lazy",
+    "width": "512",
+    "height": "341",
+    "actual": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "index.html",
+    "src": "assets/illustrations/banner/email-marketing-clean.png",
+    "loading": "lazy",
+    "width": "512",
+    "height": "341",
+    "actual": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "index.html",
+    "src": "assets/illustrations/banner/redes-sociais-clean.png",
+    "loading": "lazy",
+    "width": "512",
+    "height": "341",
+    "actual": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "index.html",
+    "src": "assets/illustrations/banner/campanhas-clean.png",
+    "loading": "lazy",
+    "width": "512",
+    "height": "341",
+    "actual": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "page": "index.html",
+    "src": "assets/illustrations/banner/lojas-clean.png",
+    "loading": "lazy",
+    "width": "512",
+    "height": "640",
+    "actual": [
+      1122,
+      1402
+    ]
+  },
+  {
+    "page": "servicos.html",
+    "src": "assets/services/page02/materiais-digitais-clean.png",
+    "loading": "lazy",
+    "width": "1536",
+    "height": "1024",
+    "actual": [
+      1535,
+      1024
+    ]
+  },
+  {
+    "page": "contato.html",
+    "src": "assets/icons/tools/photoshop.svg",
+    "loading": "lazy",
+    "width": "128",
+    "height": "128",
+    "actual": [
+      42,
+      42
+    ]
+  },
+  {
+    "page": "contato.html",
+    "src": "assets/icons/tools/illustrator.svg",
+    "loading": "lazy",
+    "width": "128",
+    "height": "128",
+    "actual": [
+      240,
+      240
+    ]
+  },
+  {
+    "page": "contato.html",
+    "src": "assets/icons/tools/after-effects.svg",
+    "loading": "lazy",
+    "width": "128",
+    "height": "128",
+    "actual": [
+      42,
+      42
+    ]
+  }
+]

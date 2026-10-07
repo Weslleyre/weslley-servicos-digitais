@@ -1,0 +1,87 @@
+[
+  {
+    "page": "index",
+    "findings": [
+      {
+        "bg": [
+          0,
+          52,
+          252
+        ],
+        "cls": "",
+        "fg": "rgb(176, 210, 27)",
+        "ratio": 4.17,
+        "size": "12.8px",
+        "tag": "A",
+        "text": "Home"
+      }
+    ]
+  },
+  {
+    "page": "servicos",
+    "findings": [
+      {
+        "bg": [
+          0,
+          52,
+          252
+        ],
+        "cls": "",
+        "fg": "rgb(176, 210, 27)",
+        "ratio": 4.17,
+        "size": "12.8px",
+        "tag": "A",
+        "text": "Serviços"
+      }
+    ]
+  },
+  {
+    "page": "portfolio",
+    "findings": [
+      {
+        "bg": [
+          0,
+          52,
+          252
+        ],
+        "cls": "",
+        "fg": "rgb(176, 210, 27)",
+        "ratio": 4.17,
+        "size": "12.8px",
+        "tag": "A",
+        "text": "Portfólio"
+      }
+    ]
+  },
+  {
+    "page": "contato",
+    "findings": [
+      {
+        "bg": [
+          0,
+          52,
+          252
+        ],
+        "cls": "",
+        "fg": "rgb(176, 210, 27)",
+        "ratio": 4.17,
+        "size": "12.8px",
+        "tag": "A",
+        "text": "Contato"
+      },
+      {
+        "bg": [
+          176,
+          210,
+          27
+        ],
+        "cls": "",
+        "fg": "rgb(0, 52, 252)",
+        "ratio": 4.17,
+        "size": "17.6px",
+        "tag": "EM",
+        "text": "que utilizo"
+      }
+    ]
+  }
+]

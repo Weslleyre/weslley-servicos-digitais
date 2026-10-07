@@ -1,0 +1,66 @@
+[
+  {
+    "brokenImages": [],
+    "height": 390,
+    "overflow": false,
+    "url": "/index.html",
+    "width": 844,
+    "unloadedModalImages": 1
+  },
+  {
+    "brokenImages": [],
+    "height": 390,
+    "overflow": false,
+    "url": "/servicos.html",
+    "width": 844,
+    "unloadedModalImages": 2
+  },
+  {
+    "brokenImages": [],
+    "height": 390,
+    "overflow": false,
+    "url": "/portfolio.html",
+    "width": 844,
+    "unloadedModalImages": 2
+  },
+  {
+    "brokenImages": [],
+    "height": 390,
+    "overflow": false,
+    "url": "/contato.html",
+    "width": 844,
+    "unloadedModalImages": 0
+  },
+  {
+    "brokenImages": [],
+    "height": 768,
+    "overflow": false,
+    "url": "/index.html",
+    "width": 1024,
+    "unloadedModalImages": 1
+  },
+  {
+    "brokenImages": [],
+    "height": 768,
+    "overflow": false,
+    "url": "/servicos.html",
+    "width": 1024,
+    "unloadedModalImages": 2
+  },
+  {
+    "brokenImages": [],
+    "height": 768,
+    "overflow": false,
+    "url": "/portfolio.html",
+    "width": 1024,
+    "unloadedModalImages": 2
+  },
+  {
+    "brokenImages": [],
+    "height": 768,
+    "overflow": false,
+    "url": "/contato.html",
+    "width": 1024,
+    "unloadedModalImages": 0
+  }
+]
