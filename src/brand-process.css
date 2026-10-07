@@ -1,4 +1,7 @@
 /* Shared identity and process system. Uses only the site's global palette. */
+.header{background:#000000}
+.header-inner{padding-block:32px}
+@media(max-width:800px){.header-inner{padding-block:24px}}
 .hero-asset:has(>img[src="assets/hero/contato-astronauta.png"]){border:0;background:transparent;padding:16px;overflow:visible}
 .hero-asset>img[src="assets/hero/contato-astronauta.png"]{display:block;width:min(800px,100%);height:auto;object-fit:contain}
 .hero-asset:has(>img[src="assets/hero/portfolio-interface.png"]){border:0;background:transparent;padding:16px;overflow:visible}
