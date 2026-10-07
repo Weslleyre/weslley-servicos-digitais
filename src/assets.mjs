@@ -1,6 +1,7 @@
 // Ícones fornecidos pelo usuário para Nossos Serviços da Home.
 // Demais espaços permanecem como placeholders até o envio dos respectivos assets.
 export const assets = {
+  'ASSET-SERVICOS-HERO': {src:'assets/hero/servicos-foguete.png',alt:'Foguete orbitando uma janela web com cubos e elementos digitais',width:800,height:533},
   'ASSET-CONTATO-WHATSAPP': {src:'assets/contact/whatsapp.png',alt:'Smartphone com símbolo do WhatsApp e elementos gráficos digitais',width:512,height:654},
   'ASSET-HOME-HERO': {src:'assets/brand/logotipo-home.png',alt:'Weslley 3Dezão — Serviços Digitais',width:800,height:450},
   'ASSET-ANTES-1': {src: 'assets/portfolio/antes-depois/site-institucional-antes.png', alt: 'site institucional — antes', width: 1280, height: 853},

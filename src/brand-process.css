@@ -1,4 +1,8 @@
 /* Shared identity and process system. Uses only the site's global palette. */
+.hero-asset:has(>img[src="assets/hero/servicos-foguete.png"]){border:0;background:transparent;padding:16px;overflow:visible}
+.hero-asset>img[src="assets/hero/servicos-foguete.png"]{display:block;width:min(800px,100%);height:auto;object-fit:contain;animation:services-hero-float 5s ease-in-out infinite}
+@keyframes services-hero-float{0%,100%{transform:translateY(3px)}50%{transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.hero-asset>img[src="assets/hero/servicos-foguete.png"]{animation:none;transform:none}}
 .comparison-card .comparison{aspect-ratio:var(--comparison-ratio)}
 .comparison img{width:100%;height:100%;object-fit:contain;user-select:none}
 .comparison-open{position:absolute;inset:0;width:100%;border:0;background:transparent;cursor:zoom-in;padding:0}
