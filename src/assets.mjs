@@ -5,7 +5,7 @@ export const assets = {
   'ASSET-PORTFOLIO-HERO': {src:'assets/hero/portfolio-interface.png',alt:'Interface web tridimensional com braço robótico e elementos visuais digitais',width:800,height:533},
   'ASSET-SERVICOS-HERO': {src:'assets/hero/servicos-foguete.png',alt:'Foguete orbitando uma janela web com cubos e elementos digitais',width:800,height:533},
   'ASSET-CONTATO-WHATSAPP': {src:'assets/contact/whatsapp.png',alt:'Smartphone com símbolo do WhatsApp e elementos gráficos digitais',width:512,height:654},
-  'ASSET-HOME-HERO': {src:'assets/brand/logotipo-home.png',alt:'Weslley 3Dezão — Serviços Digitais',width:800,height:450},
+  'ASSET-HOME-HERO': {src:'assets/brand/logotipo-home-final.png',alt:'Weslley 3Dezão — Serviços Digitais',width:800,height:450},
   'ASSET-ANTES-1': {src: 'assets/portfolio/antes-depois/site-institucional-antes.webp', alt: 'site institucional — antes', width: 1280, height: 853},
   'ASSET-DEPOIS-1': {src: 'assets/portfolio/antes-depois/site-institucional-depois.webp', alt: 'site institucional — depois', width: 1280, height: 853},
   'ASSET-ANTES-2': {src: 'assets/portfolio/antes-depois/perfil-profissional-antes.webp', alt: 'perfil profissional — antes', width: 1280, height: 853},
