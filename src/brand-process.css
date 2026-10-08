@@ -76,7 +76,7 @@ body.comparison-opened{overflow:hidden}
 .process-icon [fill="none"]{fill:none}
 .process-grid{border:0;padding-inline:0;gap:32px}
 .process-grid li{position:relative;gap:16px}
-.process-grid li:not(:last-child)::after{content:"";position:absolute;top:37px;left:calc(100% + 6px);width:20px;border-top:2px dotted var(--color-lime)}
+.process-grid li:not(:last-child)::after{content:"→";position:absolute;top:27px;left:calc(100% + 6px);width:20px;line-height:20px;font-size:18px;text-align:center;color:#0034fc;opacity:.45}
 .process-grid .step-number{font-size:2.5rem;font-weight:900}
 .process-grid .step-number{color:#0034fc}
 .service-card>.asset{display:flex;align-items:center;justify-content:center;padding:20px 5mm}
