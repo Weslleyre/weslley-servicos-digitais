@@ -9,7 +9,7 @@ export const services = [
  ['Apresentações Corporativas',['Apresentação Institucional','Apresentação Comercial','Apresentação para Investidores','Apresentação Educacional','Apresentação para Eventos']],
  ['Materiais Digitais',['Catálogo Digital','E-book','PDF Interativo','Cardápio Digital','Portfólio Digital','Revista Digital']],
  ['Educação Digital',['Plataforma para Escolas','Material Didático Digital','Conteúdo EAD','Apresentações Educacionais','Vídeos Educativos']],
- ['Sistemas e Presença Digital',['Configuração Google Meu Negócio','Página de Captura','Formulários Online','Integração WhatsApp','Integração Redes Sociais','Hospedagem e Publicação','Manutenção de Site']]
+ ['Sistemas e Presença Digital',['Configuração Google Meu Negócio','Página de Captura','Formulários Online','Integração WhatsApp','Integração Redes Sociais','Hospedagem e Publicação']]
 ];
 export const categories=['Todos','Websites','Landing Pages','Redes Sociais','Catálogos','Apresentações','E-mail Marketing','Motion Design'];
 // Títulos presentes nas referências, identificados como conteúdo demonstrativo na interface.

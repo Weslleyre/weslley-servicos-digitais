@@ -1,7 +1,10 @@
-// Confirmed Sites origin. Update here if a custom domain is configured.
-export const siteURL = 'https://weslley-3dezao-digitais.quick-cloud-3278.chatgpt.site';
-// The existing Site has restricted access. Enable only after public publication.
-export const indexable = false;
+// Public V1.0 origin. PUBLIC_SITE_URL can override it for an approved deployment.
+const configuredURL = process.env.PUBLIC_SITE_URL || 'https://weslleyre.github.io/weslley-servicos-digitais';
+const parsedURL = new URL(configuredURL);
+if (parsedURL.protocol !== 'https:' || parsedURL.search || parsedURL.hash || parsedURL.username || parsedURL.password) throw new Error('PUBLIC_SITE_URL must be an HTTPS base URL without credentials, query or fragment.');
+export const siteURL = parsedURL.href.replace(/\/$/, '');
+// Public indexing authorized for V1.0. Set PUBLIC_INDEXABLE=false for a restricted preview.
+export const indexable = process.env.PUBLIC_INDEXABLE !== 'false';
 export const siteName = 'Weslley 3Dezão — Soluções Digitais';
 export const descriptions = {
   index: 'Sites, landing pages e soluções digitais com design, estratégia e tecnologia para fortalecer sua marca.',

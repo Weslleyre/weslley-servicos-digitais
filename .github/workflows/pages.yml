@@ -1,0 +1,56 @@
+name: Serviços Digitais — publicação manual
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publicar após autorização e aceite das pendências'
+        type: boolean
+        required: true
+        default: false
+      public_base_url:
+        description: 'URL HTTPS completa, incluindo /repositorio quando aplicável'
+        type: string
+        required: true
+      ref:
+        description: 'Commit, tag ou branch aprovado (também permite rollback)'
+        type: string
+        required: true
+        default: main
+permissions:
+  contents: read
+concurrency:
+  group: servicos-digitais-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    if: ${{ inputs.publish }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --check src/interactions.js
+      - run: node scripts/audit-motion.test.mjs
+      - name: Compilar para a URL pública aprovada
+        run: node build.mjs
+        env:
+          PUBLIC_SITE_URL: ${{ inputs.public_base_url }}
+          PUBLIC_INDEXABLE: 'true'
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

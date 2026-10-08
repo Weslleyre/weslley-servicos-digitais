@@ -276,7 +276,54 @@ if(comparisonDialog){
   comparisonDialog.addEventListener('click',event=>{if(event.target===comparisonDialog)comparisonDialog.close();});
   comparisonDialog.addEventListener('close',()=>{document.body.classList.remove('comparison-opened');opener?.focus();});
 }
-document.querySelector('.contact-form')?.addEventListener('submit',event=>{
-  event.preventDefault();
-  document.querySelector('#form-status').textContent='Campos validados. Este é um protótipo: nenhuma mensagem foi enviada e seus dados não foram armazenados.';
-});
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  const button = contactForm.querySelector('button[type="submit"]');
+  const status = contactForm.querySelector('#form-status');
+  const requiredFields = [...contactForm.querySelectorAll('[required]')];
+  let sending = false;
+  const validate = field => field.setCustomValidity(field.value.trim() ? '' : 'Preencha este campo com um texto válido.');
+  requiredFields.forEach(field => field.addEventListener('input', () => validate(field)));
+  contactForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (sending) return;
+    requiredFields.forEach(validate);
+    if (!contactForm.reportValidity()) return;
+    if (contactForm.elements.namedItem('_gotcha').value) {
+      status.textContent = 'Não foi possível enviar. Use os canais de contato ao lado.';
+      return;
+    }
+    sending = true;
+    button.disabled = true;
+    contactForm.setAttribute('aria-busy', 'true');
+    status.textContent = 'Enviando sua mensagem…';
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000);
+    try {
+      const data = new FormData(contactForm);
+      for (const field of requiredFields) data.set(field.name, field.value.trim());
+      const response = await fetch(contactForm.action, {
+        method: 'POST', body: data, headers: { Accept: 'application/json' }, signal: controller.signal
+      });
+      const result = await response.json();
+      if (!response.ok || result.ok !== true) {
+        status.textContent = response.status === 429
+          ? 'Limite de envios atingido. Tente mais tarde ou use os canais de contato ao lado.'
+          : 'O serviço não confirmou o envio. Seus dados foram mantidos. Tente mais tarde ou use os canais de contato ao lado.';
+        return;
+      }
+      contactForm.reset();
+      requiredFields.forEach(field => field.setCustomValidity(''));
+      status.textContent = 'Mensagem enviada com sucesso! Obrigado pelo contato.';
+    } catch (error) {
+      status.textContent = error.name === 'AbortError'
+        ? 'O serviço demorou para responder. Não foi possível confirmar o envio. Seus dados foram mantidos; evite reenviar imediatamente.'
+        : 'Não foi possível confirmar o envio. Verifique sua conexão ou use os canais de contato ao lado. Seus dados foram mantidos.';
+    } finally {
+      clearTimeout(timeout);
+      sending = false;
+      button.disabled = false;
+      contactForm.setAttribute('aria-busy', 'false');
+    }
+  });
+}
