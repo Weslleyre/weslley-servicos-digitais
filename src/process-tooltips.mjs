@@ -1,0 +1,7 @@
+// Textos aprovados para as quatro etapas existentes da Home.
+export const processTooltips = {
+  "Briefing": "Começamos com uma conversa para conhecer seu negócio, seus objetivos e o público que deseja alcançar. Identificamos suas necessidades, preferências visuais, referências e expectativas. Essas informações nos ajudam a compreender o propósito do projeto e definir uma direção alinhada à identidade da sua marca.",
+  "Planejamento": "Com as informações reunidas, organizamos o conteúdo, definimos a estrutura do projeto e estabelecemos as prioridades de comunicação. Avaliamos a melhor maneira de apresentar sua mensagem, considerando identidade visual, navegação, funcionalidades e experiência do público. Assim, cada decisão criativa parte de um objetivo claro.",
+  "Criação": "É aqui que as ideias ganham forma. Desenvolvemos os elementos visuais, conteúdos e recursos necessários ao projeto, combinando design, criatividade e tecnologia. Conforme o serviço contratado, essa etapa pode envolver layouts, imagens, animações, páginas web ou materiais digitais, sempre buscando clareza, consistência e qualidade na apresentação.",
+  "Entrega": "Antes da entrega, conferimos os elementos do projeto, realizamos os ajustes previstos e verificamos os requisitos aplicáveis ao serviço. Após a aprovação, disponibilizamos os materiais nos formatos combinados ou realizamos a publicação, quando incluída no trabalho. O objetivo é entregar uma solução organizada, funcional e pronta para sua finalidade."
+};

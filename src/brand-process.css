@@ -94,6 +94,24 @@ body.comparison-opened{overflow:hidden}
 
 /* Service examples: original artwork, text links and translucent gallery frame. */
 .service-art-link{display:block;width:100%;border:0;background:none;padding:0;cursor:zoom-in}
+.services-section .service-preview{position:relative}
+.services-section .service-preview .service-selected-art{position:absolute;inset:0;margin:auto;width:calc((100% - 10mm)*var(--service-icon-scale,.8));height:calc((100% - 40px)*.84);max-width:calc(100% - 10mm);max-height:calc(100% - 40px);object-fit:contain}
+.service-selected-art:is([src$="conteudo-digital-reels-03.png"],[src$="conteudo-digital-shorts-04.png"],[src$="redes-sociais-stories-03.png"],[src$="website-one-page-03.png"]){--service-icon-scale:1}
+.service-selected-art:is([src$="conteudo-digital-tiktok-05.png"],[src$="conteudo-digital-videos-redes-sociais-02.png"],[src$="materiais-digitais-pdf-interativo-03.png"],[src$="sistemas-presenca-digital-formulario-online-03.png"],[src$="sistemas-presenca-digital-integracao-whatsapp-04.png"]){--service-icon-scale:.92}
+.service-selected-art:is([src$="apresentacoes-corporativas-eventos-05.png"],[src$="apresentacoes-corporativas-investidores-03.png"],[src$="comercio-eletronico-loja-virtual-01.png"],[src$="educacao-digital-conteudo-ead-03.png"],[src$="educacao-digital-plataforma-escolas-01.png"],[src$="educacao-digital-videos-educativos-05.png"],[src$="marketing-digital-campanhas-promocionais-03.png"],[src$="materiais-digitais-catalogo-digital-01.png"],[src$="materiais-digitais-revista-digital-06.png"],[src$="redes-sociais-banners-04.png"],[src$="redes-sociais-calendario-editorial-06.png"],[src$="sistemas-presenca-digital-google-meu-negocio-01.png"],[src$="website-corporativo-02.png"]){--service-icon-scale:.76}
+.services-section .service-art-link.is-previewing .service-category-art{visibility:hidden}
+#servico-01 .website-service-headline{position:absolute;top:var(--website-headline-top);left:5mm;right:5mm;margin:0;color:#FFFFFF;font-family:inherit;font-size:.875rem;font-weight:400;line-height:1.3;text-align:center;overflow-wrap:normal}
+.services-section .service-card:not(#servico-01) .website-service-headline{position:absolute;top:var(--website-headline-top);left:5mm;right:5mm;margin:0;color:#FFFFFF;font-family:inherit;font-size:.875rem;font-weight:400;line-height:1.3;text-align:center;overflow-wrap:normal}
+@media(min-width:561px){
+  .services-section .service-card:not(#servico-01) .service-headline-sized .service-selected-art{height:calc((var(--website-base-height) - 40px)*.84);max-height:calc(var(--website-base-height) - 40px);top:calc((var(--website-base-height) - (var(--website-base-height) - 40px)*.84)/2);bottom:auto;margin-block:0}
+  .services-section .service-card:not(#servico-01) .service-headline-sized .service-category-art{transform:translateY(calc((var(--website-base-height) - var(--website-actual-height))/2))}
+}
+@media(max-width:560px){
+  #servico-01 .service-preview.website-has-headline{aspect-ratio:auto;height:var(--website-panel-height,var(--website-base-height))}
+  #servico-01 .website-has-headline .service-selected-art{height:calc((var(--website-base-height) - 40px)*.84);max-height:calc(var(--website-base-height) - 40px);top:calc((var(--website-base-height) - (var(--website-base-height) - 40px)*.84)/2);bottom:auto;margin-block:0}
+  .services-section .service-card:not(#servico-01) .service-preview.website-has-headline{aspect-ratio:auto;height:var(--website-panel-height,var(--website-base-height))}
+  .services-section .service-card:not(#servico-01) .website-has-headline .service-selected-art{height:calc((var(--website-base-height) - 40px)*.84);max-height:calc(var(--website-base-height) - 40px);top:calc((var(--website-base-height) - (var(--website-base-height) - 40px)*.84)/2);bottom:auto;margin-block:0}
+}
 .service-name{font:inherit;color:inherit;text-align:left;border:0;background:none;padding:3px 0;cursor:pointer;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px}
 .service-name:hover{color:var(--color-blue);text-decoration-color:currentColor}
 .service-name:focus-visible,.service-art-link:focus-visible,.gallery-arrow:focus-visible,.gallery-close:focus-visible{outline:3px solid var(--color-blue);outline-offset:4px}
@@ -189,3 +207,9 @@ body.comparison-opened{overflow:hidden}
 #formulario .contact-visual>.asset{overflow:visible}
 @media(max-width:560px){.process-icon.clean-icon{width:64px;height:68px}}
 @media(prefers-reduced-motion:reduce){[data-text-cycle] .cycle-frame,.cycle-description .is-active,#formulario .contact-visual>.asset img{animation:none;transform:none}}
+
+/* Only the explanatory balloons added to the four existing process steps. */
+.process .process-tooltip{position:fixed;z-index:40;width:min(360px,calc(100vw - 24px));max-width:calc(100vw - 24px);padding:16px;border-radius:10px;background:#0034FC;color:#FFFFFF;font-family:inherit;font-size:.875rem;font-weight:400;line-height:1.5;text-align:left;box-shadow:0 8px 24px rgb(0 0 0 / 18%)}
+.process .process-tooltip-copy{max-height:calc(100dvh - 72px);overflow-y:auto;overflow-wrap:break-word;overscroll-behavior:contain}
+.process .process-tooltip::after{content:"";position:absolute;left:var(--process-tooltip-arrow,50%);bottom:-8px;transform:translateX(-50%);border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #0034FC}
+.process .process-tooltip[data-placement="below"]::after{top:-8px;bottom:auto;border-top:0;border-bottom:8px solid #0034FC}

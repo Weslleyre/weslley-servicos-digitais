@@ -511,14 +511,6 @@ export const serviceGalleries = [
         "width": 1280,
         "height": 720,
         "descriptionSource": "Texto elaborado"
-      },
-      {
-        "title": "Manutenção de Site",
-        "description": "Atualizações de conteúdo e ajustes técnicos para manter seu site organizado, funcional e alinhado à sua marca.",
-        "src": "assets/service-galleries/10/07.webp",
-        "width": 1280,
-        "height": 720,
-        "descriptionSource": "Texto elaborado"
       }
     ]
   }

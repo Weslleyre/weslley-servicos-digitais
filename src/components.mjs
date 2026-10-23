@@ -1,6 +1,7 @@
 import { CleanIcon } from './clean-icons.mjs';
 import { assets } from './assets.mjs';
 import { BrandLogo } from './brand.mjs';
+import { processTooltips } from './process-tooltips.mjs';
 export const escapeHTML = (value) => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function AssetPlaceholder(id, kind = '', eager = false) {
   const asset = assets[id];
@@ -27,7 +28,7 @@ export const HeroSection = ({id, eyebrow,title,text,actions,extra='',messages=nu
  ['Sua marca mais forte, profissional e <em>competitiva</em>','Design, estratégia e tecnologia trabalhando juntos para destacar seu negócio no ambiente digital.']
  ],'h1'):('<h1>'+title+'</h1><p>'+text+'</p>')}${extra}<div class="actions">${actions}</div></div>${AssetPlaceholder(`ASSET-${id}-HERO`,id==='HOME'?'hero-asset home-logo-wiggle':'hero-asset',true)}</div></section>`;
 export const CTASection = (title, text = '', top = false, alternate = null) => `<section class="cta blue"><div class="container cta-grid">${AssetPlaceholder('ASSET-CTA-FINAL','cta-asset')}<div${alternate?' data-text-cycle="decode"':''}>${alternate?rotatingCopy([[title,text],alternate]):`<h2>${title}</h2>${text?`<p>${text}</p>`:''}`}</div><div class="actions">${Button('Solicitar orçamento')}${top?Button('Voltar ao topo','#topo','dark'):Button('Falar no WhatsApp','https://wa.me/5511999720479','dark')}</div></div></section>`;
-export const ProcessStep = (title, index, text) => `<li>${CleanIcon(['dialogue','planning','creation','delivery'][index],'process-icon clean-icon')}<div><strong class="step-number">${String(index+1).padStart(2,'0')}</strong><h3>${title}</h3><p>${text}</p></div></li>`;
+export const ProcessStep = (title, index, text) => `<li${processTooltips[title]?` tabindex="0" data-process-tooltip="process-tooltip-${index+1}" aria-describedby="process-tooltip-${index+1}"`:''}>${CleanIcon(['dialogue','planning','creation','delivery'][index],'process-icon clean-icon')}<div><strong class="step-number">${String(index+1).padStart(2,'0')}</strong><h3>${title}</h3><p>${text}</p></div>${processTooltips[title]?`<div class="process-tooltip" id="process-tooltip-${index+1}" role="tooltip" hidden><div class="process-tooltip-copy">${escapeHTML(processTooltips[title])}</div></div>`:''}</li>`;
 export const Process = (steps) => `<section class="section process"><div class="container">${SectionHeader('Como trabalhamos')}<ol class="process-grid" style="--steps:${steps.length}">${steps.map((s,i)=>ProcessStep(s[0],i,s[1])).join('')}</ol></div></section>`;
 export const Stats = (items) => `<div class="stats">${items.map(([value,suffix,label,icon])=>`<div class="stat"><div class="asset icon metric-icon">${CleanIcon(icon)}</div><div><strong class="count-value" data-count="${value}" data-suffix="${suffix}" data-final="${value.toLocaleString('pt-BR')}${suffix}" aria-label="${value.toLocaleString('pt-BR')}${suffix}"><span aria-hidden="true">${value.toLocaleString('pt-BR')}${suffix}</span></strong><span>${label}</span></div></div>`).join('')}</div>`;
 export const TestimonialCard = (i) => `<article class="testimonial"><p class="content-placeholder">[TEXTO-DEPOIMENTO-${i}]</p><div class="person">${AssetPlaceholder(`ASSET-DEPOIMENTO-${i}`,'avatar')}<p>[NOME-CLIENTE-${i}]<small>[Cargo / empresa]</small></p></div></article>`;

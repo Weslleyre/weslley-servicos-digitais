@@ -110,29 +110,182 @@ if(featureViewer){
   document.querySelector('[data-feature-prev]').addEventListener('click',()=>advanceFeature(-1));
   document.querySelector('[data-feature-next]').addEventListener('click',()=>advanceFeature(1));
 }
+// Keep category artwork in flow so changing a service never resizes its card.
+document.querySelectorAll('.services-section .service-card').forEach(card => {
+  const list = card.querySelector('.service-body ul');
+  const panel = card.querySelector('.service-art-link');
+  const selectedImage = panel.querySelector('.service-selected-art');
+  let selected = null, touchPreviewOnly = false;
+  function resetPanel() {
+    selected = null;
+    touchPreviewOnly = false;
+    selectedImage.hidden = true;
+    panel.classList.remove('is-previewing');
+  }
+  function selectService(button) {
+    selected = button;
+    selectedImage.src = button.dataset.serviceIcon;
+    selectedImage.alt = button.textContent.trim();
+    selectedImage.hidden = false;
+    panel.classList.add('is-previewing');
+  }
+  list.querySelectorAll('[data-service-icon]').forEach(button => {
+    button.addEventListener('pointerenter', event => {
+      if (event.pointerType === 'mouse') selectService(button);
+    });
+    button.addEventListener('focus', () => selectService(button));
+    button.addEventListener('pointerdown', event => {
+      touchPreviewOnly = false;
+      if (event.pointerType === 'touch' || event.pointerType === 'pen') {
+        touchPreviewOnly = selected !== button;
+        selectService(button);
+      }
+    });
+    button.addEventListener('click', event => {
+      if (touchPreviewOnly) {
+        touchPreviewOnly = false;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    });
+  });
+  list.addEventListener('pointerleave', event => {
+    if (event.pointerType === 'mouse') resetPanel();
+  });
+  list.addEventListener('focusout', event => {
+    if (!list.contains(event.relatedTarget)) resetPanel();
+  });
+  card.addEventListener('keydown', event => {
+    if (event.key === 'Escape') resetPanel();
+  });
+  document.addEventListener('pointerdown', event => {
+    if (!card.contains(event.target)) resetPanel();
+  });
+});
+const serviceHeadlineSyncs = new Map();
+document.querySelectorAll('.services-section .service-card').forEach(websitesCard => {
+  const websitePanel = websitesCard.querySelector('.service-preview');
+  const websiteImage = websitesCard.querySelector('.service-selected-art');
+  const websiteHeadline = websitesCard.querySelector('.website-service-headline');
+  function syncWebsiteHeadline() {
+    if (websitesCard.id !== 'servico-01') websitePanel.style.setProperty('--website-actual-height', `${websitePanel.getBoundingClientRect().height}px`);
+    const selectedButton = [...websitesCard.querySelectorAll('[data-website-headline]')].find(button => button.dataset.serviceIcon === websiteImage.getAttribute('src'));
+    if (websiteImage.hidden || !selectedButton) {
+      websiteHeadline.hidden = true;
+      websiteHeadline.textContent = '';
+      websitePanel.classList.remove('website-has-headline');
+      return;
+    }
+    websiteHeadline.textContent = selectedButton.dataset.websiteHeadline;
+    websiteHeadline.hidden = false;
+    const mobile = matchMedia('(max-width:560px)').matches;
+    if (websitesCard.id === 'servico-01' || mobile) websitePanel.style.setProperty('--website-base-height', `${websitePanel.clientWidth / 1.7}px`);
+    websitePanel.classList.toggle('website-has-headline', mobile);
+    const panelBox = websitePanel.getBoundingClientRect();
+    const imageBox = websiteImage.getBoundingClientRect();
+    const imageSide = Math.min(imageBox.width, imageBox.height);
+    const headlineTop = imageBox.top - panelBox.top + (imageBox.height + imageSide) / 2 + 8;
+    websitePanel.style.setProperty('--website-headline-top', `${headlineTop}px`);
+    if (mobile) {
+      const height = Math.max(websitePanel.clientWidth / 1.7, headlineTop + websiteHeadline.getBoundingClientRect().height + 20);
+      websitePanel.style.setProperty('--website-panel-height', `${Math.ceil(height)}px`);
+    }
+  }
+  new MutationObserver(syncWebsiteHeadline).observe(websiteImage, { attributes:true, attributeFilter:['src','alt','hidden'] });
+  new ResizeObserver(syncWebsiteHeadline).observe(websitePanel);
+  if (websitesCard.id !== 'servico-01') serviceHeadlineSyncs.set(websitesCard, syncWebsiteHeadline);
+});
+// Measure every caption at the existing icon position, reserving only missing space.
+// Capture all original row heights before extending any row; card 01 is excluded.
+function fitServiceHeadlines() {
+  const cards = [...serviceHeadlineSyncs.keys()];
+  cards.forEach(card => {
+    card.style.removeProperty('min-height');
+    card.querySelector('.service-preview').classList.remove('service-headline-sized');
+  });
+  if (matchMedia('(max-width:560px)').matches) {
+    serviceHeadlineSyncs.forEach(sync => sync());
+    return;
+  }
+  const bases = cards.map(card => card.querySelector('.service-preview').getBoundingClientRect().height);
+  const required = cards.map((card, index) => {
+    const panel = card.querySelector('.service-preview');
+    const caption = card.querySelector('.website-service-headline');
+    const image = card.querySelector('.service-selected-art').cloneNode();
+    const text = caption.textContent, hidden = caption.hidden;
+    panel.style.setProperty('--website-base-height', `${bases[index]}px`);
+    panel.style.setProperty('--website-actual-height', `${bases[index]}px`);
+    panel.classList.add('service-headline-sized');
+    image.hidden = false;
+    image.setAttribute('aria-hidden', 'true');
+    panel.append(image);
+    caption.hidden = false;
+    let height = bases[index];
+    card.querySelectorAll('[data-website-headline]').forEach(button => {
+      image.src = button.dataset.serviceIcon;
+      caption.textContent = button.dataset.websiteHeadline;
+      const imageBox = image.getBoundingClientRect();
+      const top = imageBox.top - panel.getBoundingClientRect().top + (imageBox.height + Math.min(imageBox.width, imageBox.height)) / 2 + 8;
+      height = Math.max(height, top + caption.getBoundingClientRect().height + 8);
+    });
+    image.remove();
+    caption.textContent = text;
+    caption.hidden = hidden;
+    return height > bases[index] ? Math.ceil(height + 2) : null;
+  });
+  cards.forEach((card, index) => {
+    if (required[index] !== null) card.style.minHeight = `${required[index]}px`;
+  });
+  serviceHeadlineSyncs.forEach(sync => sync());
+}
+if (serviceHeadlineSyncs.size) {
+  fitServiceHeadlines();
+  window.addEventListener('resize', fitServiceHeadlines);
+}
 const serviceGallery = document.querySelector('#service-gallery');
 if (serviceGallery) {
   const groups = JSON.parse(document.querySelector('#service-gallery-data').textContent);
   const preview = document.querySelector('#service-hover-preview');
-  function hidePreview() { preview.hidden = true; }
+  let previewButton, previewHideTimer;
+  function hidePreview() { clearTimeout(previewHideTimer); preview.hidden = true; }
   function showPreview(button) {
     if (serviceGallery.open) return;
+    clearTimeout(previewHideTimer);
+    previewButton = button;
     const item = groups[Number(button.dataset.serviceGroup)].items[Number(button.dataset.serviceIndex)];
     preview.querySelector('img').src = item.src;
     preview.querySelector('span').textContent = item.title;
     preview.hidden = false;
+    const previewImage = preview.querySelector('img');
+    preview.style.width = '';
+    previewImage.style.height = '';
+    const originalWidth = preview.offsetWidth, originalHeight = preview.offsetHeight;
+    const originalImageHeight = previewImage.offsetHeight;
+    const mobilePanel = innerWidth <= 560 ? button.closest('.service-card')?.querySelector('.service-preview')?.getBoundingClientRect() : null;
+    preview.style.width = `${Math.min(originalWidth * 1.5, innerWidth - 16, mobilePanel ? mobilePanel.width - 16 : Infinity)}px`;
+    previewImage.style.height = `${originalImageHeight * 1.5}px`;
+    const targetHeight = mobilePanel ? Math.min(originalHeight * 1.5, mobilePanel.height - 16) : originalHeight * 1.5;
+    previewImage.style.height = `${Math.max(0, previewImage.offsetHeight + targetHeight - preview.offsetHeight)}px`;
     const box = button.getBoundingClientRect();
     const width = preview.offsetWidth, height = preview.offsetHeight;
-    const left = box.right + 14 + width <= innerWidth ? box.right + 14 : box.left - width - 14;
-    preview.style.left = `${Math.max(8, Math.min(left, innerWidth - width - 8))}px`;
-    preview.style.top = `${Math.max(8, Math.min(box.top - 15, innerHeight - height - 8))}px`;
+    const cardBox = button.closest('.service-card')?.getBoundingClientRect();
+    const gridBox = button.closest('.services-grid')?.getBoundingClientRect();
+    const rightCard = cardBox && gridBox && cardBox.left >= gridBox.left + gridBox.width / 2;
+    const left = rightCard ? cardBox.left - width - 14 : box.right + 14 + width <= innerWidth ? box.right + 14 : box.left - width - 14;
+    preview.style.left = `${mobilePanel ? mobilePanel.left + (mobilePanel.width - width) / 2 : Math.max(8, Math.min(left, innerWidth - width - 8))}px`;
+    preview.style.top = `${mobilePanel ? mobilePanel.top + (mobilePanel.height - height) / 2 : Math.max(8, Math.min(box.top - 15, innerHeight - height - 8))}px`;
   }
   document.querySelectorAll('.service-name').forEach(button => {
     button.addEventListener('pointerenter', event => { if(event.pointerType === 'mouse') showPreview(button); });
-    button.addEventListener('pointerleave', hidePreview);
+    button.addEventListener('pointerleave', () => { previewHideTimer = setTimeout(hidePreview, 200); });
     button.addEventListener('focus', () => showPreview(button));
     button.addEventListener('blur', hidePreview);
   });
+  preview.addEventListener('pointerenter', () => clearTimeout(previewHideTimer));
+  preview.addEventListener('pointerleave', hidePreview);
+  preview.querySelector('img').style.pointerEvents = 'auto';
+  preview.querySelector('img').addEventListener('pointerdown', event => event.preventDefault());
+  preview.querySelector('img').addEventListener('click', () => previewButton?.click());
   window.addEventListener('scroll', hidePreview, true);
   window.addEventListener('resize', hidePreview);
   let groupIndex = 0, imageIndex = 0, opener;
@@ -278,52 +431,147 @@ if(comparisonDialog){
 }
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-  const button = contactForm.querySelector('button[type="submit"]');
-  const status = contactForm.querySelector('#form-status');
-  const requiredFields = [...contactForm.querySelectorAll('[required]')];
-  let sending = false;
-  const validate = field => field.setCustomValidity(field.value.trim() ? '' : 'Preencha este campo com um texto válido.');
-  requiredFields.forEach(field => field.addEventListener('input', () => validate(field)));
+  let contactSubmitting = false;
   contactForm.addEventListener('submit', async event => {
     event.preventDefault();
-    if (sending) return;
-    requiredFields.forEach(validate);
-    if (!contactForm.reportValidity()) return;
-    if (contactForm.elements.namedItem('_gotcha').value) {
-      status.textContent = 'Não foi possível enviar. Use os canais de contato ao lado.';
-      return;
-    }
-    sending = true;
-    button.disabled = true;
+    if (contactSubmitting || !contactForm.reportValidity()) return;
+    const submit = contactForm.querySelector('[type="submit"]');
+    const status = contactForm.querySelector('#form-status');
+    contactSubmitting = true;
+    submit.disabled = true;
     contactForm.setAttribute('aria-busy', 'true');
     status.textContent = 'Enviando sua mensagem…';
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 20000);
     try {
-      const data = new FormData(contactForm);
-      for (const field of requiredFields) data.set(field.name, field.value.trim());
       const response = await fetch(contactForm.action, {
-        method: 'POST', body: data, headers: { Accept: 'application/json' }, signal: controller.signal
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' }
       });
       const result = await response.json();
-      if (!response.ok || result.ok !== true) {
+      if (!response.ok || result?.ok !== true || result?.errors?.length) {
+        const details = Array.isArray(result?.errors) ? result.errors.map(error => error.message).filter(message => typeof message === 'string').join(' ') : '';
         status.textContent = response.status === 429
-          ? 'Limite de envios atingido. Tente mais tarde ou use os canais de contato ao lado.'
-          : 'O serviço não confirmou o envio. Seus dados foram mantidos. Tente mais tarde ou use os canais de contato ao lado.';
+          ? 'Limite de envios atingido. Aguarde alguns minutos e tente novamente. Seus dados foram mantidos.'
+          : `Não foi possível enviar sua mensagem. Seus dados foram mantidos. ${details || 'Tente novamente ou fale conosco pelo WhatsApp.'}`;
         return;
       }
       contactForm.reset();
-      requiredFields.forEach(field => field.setCustomValidity(''));
       status.textContent = 'Mensagem enviada com sucesso! Obrigado pelo contato.';
-    } catch (error) {
-      status.textContent = error.name === 'AbortError'
-        ? 'O serviço demorou para responder. Não foi possível confirmar o envio. Seus dados foram mantidos; evite reenviar imediatamente.'
-        : 'Não foi possível confirmar o envio. Verifique sua conexão ou use os canais de contato ao lado. Seus dados foram mantidos.';
+    } catch {
+      status.textContent = 'Não foi possível confirmar o envio. Seus dados foram mantidos. Verifique sua conexão e tente novamente ou fale conosco pelo WhatsApp.';
     } finally {
-      clearTimeout(timeout);
-      sending = false;
-      button.disabled = false;
-      contactForm.setAttribute('aria-busy', 'false');
+      contactSubmitting = false;
+      submit.disabled = false;
+      contactForm.removeAttribute('aria-busy');
     }
   });
+}
+
+// Explanatory tooltips for the four existing Home process steps only.
+const processTooltipEntries = [...document.querySelectorAll('.process [data-process-tooltip]')].map(step => ({
+  step, tooltip: document.getElementById(step.dataset.processTooltip), hovered: false
+}));
+if (processTooltipEntries.length) {
+  let activeProcessTooltip, processTooltipTimer;
+  function hideProcessTooltip() {
+    clearTimeout(processTooltipTimer);
+    if (activeProcessTooltip) activeProcessTooltip.tooltip.hidden = true;
+    activeProcessTooltip = null;
+  }
+  function positionProcessTooltip() {
+    if (!activeProcessTooltip) return;
+    const { step, tooltip } = activeProcessTooltip;
+    const box = step.getBoundingClientRect();
+    const viewport = window.visualViewport;
+    const leftEdge = viewport?.offsetLeft || 0, topEdge = viewport?.offsetTop || 0;
+    const width = viewport?.width || document.documentElement.clientWidth;
+    const height = viewport?.height || innerHeight;
+    if (box.bottom <= topEdge || box.top >= topEdge + height || box.right <= leftEdge || box.left >= leftEdge + width) {
+      hideProcessTooltip();
+      return;
+    }
+    tooltip.style.width = `${Math.min(360, width - 24)}px`;
+    tooltip.querySelector('.process-tooltip-copy').style.maxHeight = `${Math.max(16, height - 72)}px`;
+    const tipBox = tooltip.getBoundingClientRect();
+    const center = (box.left + box.right) / 2;
+    const left = Math.max(leftEdge + 12, Math.min(center - tipBox.width / 2, leftEdge + width - tipBox.width - 12));
+    const above = box.top - topEdge - 24, below = topEdge + height - box.bottom - 24;
+    const placement = tipBox.height <= above || above >= below ? 'above' : 'below';
+    const wantedTop = placement === 'above' ? box.top - tipBox.height - 12 : box.bottom + 12;
+    tooltip.style.left = `${left}px`;
+    tooltip.style.top = `${Math.max(topEdge + 12, Math.min(wantedTop, topEdge + height - tipBox.height - 12))}px`;
+    tooltip.style.setProperty('--process-tooltip-arrow', `${Math.max(16, Math.min(center - left, tipBox.width - 16))}px`);
+    tooltip.dataset.placement = placement;
+  }
+  function showProcessTooltip(entry) {
+    clearTimeout(processTooltipTimer);
+    if (activeProcessTooltip !== entry) hideProcessTooltip();
+    activeProcessTooltip = entry;
+    entry.tooltip.hidden = false;
+    positionProcessTooltip();
+  }
+  function leaveProcessTooltip(entry) {
+    clearTimeout(processTooltipTimer);
+    if (entry.hovered || entry.step.contains(document.activeElement)) return;
+    processTooltipTimer = setTimeout(() => {
+      if (activeProcessTooltip === entry) hideProcessTooltip();
+    }, 160);
+  }
+  processTooltipEntries.forEach(entry => {
+    let touchActivation = false, touchWasOpen = false;
+    entry.step.addEventListener('pointerenter', event => {
+      if (event.pointerType !== 'mouse') return;
+      entry.hovered = true;
+      showProcessTooltip(entry);
+    });
+    entry.step.addEventListener('pointerleave', event => {
+      if (event.pointerType !== 'mouse') return;
+      entry.hovered = false;
+      leaveProcessTooltip(entry);
+    });
+    entry.tooltip.addEventListener('pointerenter', event => {
+      if (event.pointerType !== 'mouse') return;
+      entry.hovered = true;
+      clearTimeout(processTooltipTimer);
+    });
+    entry.tooltip.addEventListener('pointerleave', event => {
+      if (event.pointerType !== 'mouse') return;
+      entry.hovered = entry.step.contains(event.relatedTarget);
+      leaveProcessTooltip(entry);
+    });
+    entry.step.addEventListener('focus', () => { if (!touchActivation) showProcessTooltip(entry); });
+    entry.step.addEventListener('focusout', () => leaveProcessTooltip(entry));
+    entry.step.addEventListener('pointerdown', event => {
+      if (event.target.closest('.process-tooltip')) return;
+      touchActivation = event.pointerType === 'touch' || event.pointerType === 'pen';
+      touchWasOpen = activeProcessTooltip === entry;
+    });
+    entry.step.addEventListener('pointercancel', () => { touchActivation = false; });
+    entry.step.addEventListener('click', event => {
+      if (event.target.closest('.process-tooltip')) return;
+      if (touchActivation) {
+        touchWasOpen ? hideProcessTooltip() : showProcessTooltip(entry);
+        touchActivation = false;
+      } else if (event.detail === 0) showProcessTooltip(entry);
+    });
+    entry.step.addEventListener('keydown', event => {
+      if (activeProcessTooltip !== entry) return;
+      const copy = entry.tooltip.querySelector('.process-tooltip-copy');
+      const direction = { ArrowDown: 40, ArrowUp: -40, PageDown: copy.clientHeight, PageUp: -copy.clientHeight }[event.key];
+      if (direction && copy.scrollHeight > copy.clientHeight) {
+        event.preventDefault();
+        copy.scrollTop += direction;
+      }
+    });
+  });
+  document.addEventListener('pointerdown', event => {
+    if (activeProcessTooltip && !activeProcessTooltip.step.contains(event.target)) hideProcessTooltip();
+  });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') hideProcessTooltip(); });
+  window.addEventListener('resize', positionProcessTooltip);
+  window.addEventListener('scroll', event => {
+    if (!activeProcessTooltip?.tooltip.contains(event.target)) positionProcessTooltip();
+  }, true);
+  window.visualViewport?.addEventListener('resize', positionProcessTooltip);
+  window.visualViewport?.addEventListener('scroll', positionProcessTooltip);
 }
